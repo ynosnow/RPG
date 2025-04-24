@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://e1rwa13wi1k7"]
+[gd_scene load_steps=3 format=3 uid="uid://e1rwa13wi1k7"]
+
+[ext_resource type="Script" uid="uid://dj4kopq2vyah8" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="FontFile" uid="uid://dh4w8na081n4q" path="res://m5x7.ttf" id="2_ouk20"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -7,3 +10,59 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lti8b")
+
+[node name="MenuColor" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(1, 0.423529, 0.12549, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -65.0
+offset_right = 160.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayBtn" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ouk20")
+theme_override_font_sizes/font_size = 40
+text = "Play
+"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ouk20")
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 30.0
+offset_right = 31.0
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_ouk20")
+theme_override_font_sizes/font_size = 50
+text = "RPG"
+
+[connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
