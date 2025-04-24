@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfoxts52oxjjd"]
+
+[ext_resource type="FontFile" uid="uid://dh4w8na081n4q" path="res://m5x7.ttf" id="1_filgf"]
+[ext_resource type="Script" uid="uid://d1ajwrxk0gij8" path="res://exit_btn.gd" id="2_r3rpf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.299547, 0.299547, 0.299547, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -75.0
+offset_right = 200.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory_Btn" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_filgf")
+theme_override_font_sizes/font_size = 50
+text = "Inventory"
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Map_Btn" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_filgf")
+theme_override_font_sizes/font_size = 50
+text = "Map"
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Quest_Btn" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_filgf")
+theme_override_font_sizes/font_size = 50
+text = "Quests"
+
+[node name="Exit_Btn" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_filgf")
+theme_override_font_sizes/font_size = 40
+text = "X"
+script = ExtResource("2_r3rpf")
+
+[connection signal="pressed" from="Exit_Btn" to="Exit_Btn" method="_on_pressed"]

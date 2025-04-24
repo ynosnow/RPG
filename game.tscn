@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://biismmld4b6lj"]
+[gd_scene load_steps=13 format=3 uid="uid://biismmld4b6lj"]
 
 [ext_resource type="Texture2D" uid="uid://bd6il6wlbngbk" path="res://Assets/Asphalt_Tilemap.png" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://c1b8ixx42r41l" path="res://player.tscn" id="2_e2o6t"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dfqoi3y6igqay" path="res://npc.tscn" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://clp3qm3yi5yg6" path="res://NPC.gd" id="5_ryrav"]
 [ext_resource type="Texture2D" uid="uid://b11ky0llep1nd" path="res://Assets/charakter_2.png" id="6_eow3j"]
+[ext_resource type="Script" uid="uid://cs8ra0urauy3l" path="res://menu_btn.gd" id="7_j5wjh"]
+[ext_resource type="FontFile" uid="uid://dh4w8na081n4q" path="res://m5x7.ttf" id="7_vef74"]
+[ext_resource type="PackedScene" uid="uid://bfoxts52oxjjd" path="res://break_menu.tscn" id="8_vef74"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80nbo"]
 texture = ExtResource("1_80nbo")
@@ -54,5 +57,22 @@ texture = ExtResource("6_eow3j")
 [node name="Player" parent="." instance=ExtResource("2_e2o6t")]
 disable_mode = 2
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Menu_Btn" type="Button" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 53.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_vef74")
+text = "Menu"
+script = ExtResource("7_j5wjh")
+
+[node name="BreakMenu" parent="UI" instance=ExtResource("8_vef74")]
+visible = false
+
 [connection signal="body_entered" from="Heinrich" to="Heinrich" method="_on_body_entered"]
 [connection signal="body_exited" from="Heinrich" to="Heinrich" method="_on_body_exited"]
+[connection signal="pressed" from="UI/Menu_Btn" to="UI/Menu_Btn" method="_on_pressed"]
