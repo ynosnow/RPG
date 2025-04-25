@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfoxts52oxjjd"]
+[gd_scene load_steps=4 format=3 uid="uid://bfoxts52oxjjd"]
 
 [ext_resource type="FontFile" uid="uid://dh4w8na081n4q" path="res://m5x7.ttf" id="1_filgf"]
+[ext_resource type="Script" uid="uid://cc2w2oqtcbo7y" path="res://inventory_btn.gd" id="2_oivyh"]
 [ext_resource type="Script" uid="uid://d1ajwrxk0gij8" path="res://exit_btn.gd" id="2_r3rpf"]
 
 [node name="Control" type="Control"]
@@ -37,6 +38,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_filgf")
 theme_override_font_sizes/font_size = 50
 text = "Inventory"
+script = ExtResource("2_oivyh")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -72,4 +74,5 @@ theme_override_font_sizes/font_size = 40
 text = "X"
 script = ExtResource("2_r3rpf")
 
+[connection signal="pressed" from="ColorRect/VBoxContainer/Inventory_Btn" to="ColorRect/VBoxContainer/Inventory_Btn" method="_on_pressed"]
 [connection signal="pressed" from="Exit_Btn" to="Exit_Btn" method="_on_pressed"]
