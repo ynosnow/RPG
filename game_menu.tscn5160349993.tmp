@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://db7bn3oro0v0y"]
+
+[ext_resource type="FontFile" uid="uid://dh4w8na081n4q" path="res://m5x7.ttf" id="1_jowre"]
+[ext_resource type="Script" uid="uid://dx1jcgrhelu1w" path="res://SaveLoad.gd" id="2_5rxej"]
+[ext_resource type="Script" uid="uid://c2bqjhmohyw22" path="res://exit_without_save.gd" id="2_jprcw"]
+[ext_resource type="Script" uid="uid://d1ajwrxk0gij8" path="res://exit_btn.gd" id="2_rjxss"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.298039, 0.298039, 0.298039, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Save_Btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jowre")
+theme_override_font_sizes/font_size = 50
+text = "Save"
+script = ExtResource("2_5rxej")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+
+[node name="Load" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jowre")
+theme_override_font_sizes/font_size = 50
+text = "Load"
+script = ExtResource("2_5rxej")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+
+[node name="Options_Btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jowre")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+
+[node name="Exit_Without_Save_Btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jowre")
+theme_override_font_sizes/font_size = 50
+text = "Exit without saving"
+script = ExtResource("2_jprcw")
+
+[node name="Exit_Btn" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_jowre")
+theme_override_font_sizes/font_size = 40
+text = "X"
+script = ExtResource("2_rjxss")
+
+[connection signal="pressed" from="VBoxContainer/Save_Btn" to="VBoxContainer/Save_Btn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Load" to="VBoxContainer/Save_Btn" method="_on_load_pressed"]
+[connection signal="pressed" from="VBoxContainer/Load" to="VBoxContainer/Load" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit_Without_Save_Btn" to="VBoxContainer/Exit_Without_Save_Btn" method="_on_pressed"]
+[connection signal="pressed" from="Exit_Btn" to="Exit_Btn" method="_on_pressed"]

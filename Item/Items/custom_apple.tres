@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bkuwwh6jsiexq"]
+
+[ext_resource type="Texture2D" uid="uid://b4fjuodwevgnl" path="res://Assets/Items/apple.png" id="1_e3rld"]
+
+[resource]
+atlas = ExtResource("1_e3rld")

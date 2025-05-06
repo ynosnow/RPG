@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cwcu327vy8ffy"]
+
+[ext_resource type="Script" uid="uid://djryq6qy558r7" path="res://Item/item_data.gd" id="1_qbt2g"]
+[ext_resource type="Texture2D" uid="uid://srl7vs2gbgql" path="res://Item/item_atlas.tres" id="2_kcf62"]
+
+[resource]
+script = ExtResource("1_qbt2g")
+name = "Blue Book"
+description = "Good Reading"
+stackable = false
+texture = ExtResource("2_kcf62")
+metadata/_custom_type_script = "uid://djryq6qy558r7"

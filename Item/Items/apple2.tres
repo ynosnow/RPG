@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bcfbs2sus3bn0"]
+
+[ext_resource type="Script" uid="uid://djryq6qy558r7" path="res://Item/item_data.gd" id="1_yiyt4"]
+[ext_resource type="Texture2D" uid="uid://bkuwwh6jsiexq" path="res://Item/Items/custom_apple.tres" id="2_md3ms"]
+
+[resource]
+script = ExtResource("1_yiyt4")
+name = ""
+description = ""
+stackable = false
+texture = ExtResource("2_md3ms")
+metadata/_custom_type_script = "uid://djryq6qy558r7"

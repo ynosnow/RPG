@@ -32,14 +32,19 @@ offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayBtn" type="Button" parent="VBoxContainer"]
-texture_filter = 1
+[node name="New Game" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_ouk20")
 theme_override_font_sizes/font_size = 40
-text = "Play
-"
+text = "New Game"
+
+[node name="Load Game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ouk20")
+theme_override_font_sizes/font_size = 40
+text = "Load Game"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 texture_filter = 1
@@ -64,5 +69,8 @@ theme_override_fonts/font = ExtResource("2_ouk20")
 theme_override_font_sizes/font_size = 50
 text = "RPG"
 
-[connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Load Game" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Load Game" to="VBoxContainer/Load Game" method="_on_load_game_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Load Game" to="VBoxContainer/Load Game" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
