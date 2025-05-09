@@ -37,3 +37,7 @@ func _input(event):
 func _init_inventory():
 	if inventory_interface and player:
 		inventory_interface.set_player_inventory_data(player.inventory_data)
+
+
+func _on_chinese_entrance_body_entered(body: Node2D) -> void:
+	get_tree().change_scene_to_file("res://chinese_shop.tscn")

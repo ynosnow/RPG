@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c04dgg442nati"]
+
+[ext_resource type="Texture2D" uid="uid://ce0ys58468tnf" path="res://Assets/room.png" id="1_mi7gk"]
+[ext_resource type="PackedScene" uid="uid://c1b8ixx42r41l" path="res://player.tscn" id="2_ofdg3"]
+
+[node name="Chinese_Shop" type="Node2D"]
+
+[node name="Room" type="Sprite2D" parent="."]
+position = Vector2(320, 178)
+texture = ExtResource("1_mi7gk")
+
+[node name="Player" parent="." instance=ExtResource("2_ofdg3")]
