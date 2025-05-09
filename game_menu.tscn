@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://db7bn3oro0v0y"]
 
 [ext_resource type="FontFile" uid="uid://dh4w8na081n4q" path="res://m5x7.ttf" id="1_jowre"]
-[ext_resource type="Script" uid="uid://dx1jcgrhelu1w" path="res://SaveLoad.gd" id="2_5rxej"]
+[ext_resource type="Script" uid="uid://cd6osbur35wvh" path="res://Save_and_Load_btns.gd" id="2_5rxej"]
 [ext_resource type="Script" uid="uid://c2bqjhmohyw22" path="res://exit_without_save.gd" id="2_jprcw"]
 [ext_resource type="Script" uid="uid://d1ajwrxk0gij8" path="res://exit_btn.gd" id="2_rjxss"]
 
@@ -87,8 +87,8 @@ theme_override_font_sizes/font_size = 40
 text = "X"
 script = ExtResource("2_rjxss")
 
-[connection signal="pressed" from="VBoxContainer/Save_Btn" to="VBoxContainer/Save_Btn" method="_on_save_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/Save_Btn" to="VBoxContainer/Save_Btn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Save_Btn" to="VBoxContainer/Save_Btn" method="_on_save_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/Load" to="VBoxContainer/Save_Btn" method="_on_load_pressed"]
 [connection signal="pressed" from="VBoxContainer/Load" to="VBoxContainer/Load" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit_Without_Save_Btn" to="VBoxContainer/Exit_Without_Save_Btn" method="_on_pressed"]

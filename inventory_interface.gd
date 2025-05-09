@@ -11,6 +11,9 @@ func _physics_process(delta: float) -> void:
 
 
 func set_player_inventory_data(inventory_data: InventoryData) -> void:
+	if inventory_data == null:
+		push_warning("Tried to set null inventory_data!")
+		return
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	player_inventory.set_inventory_data(inventory_data)
 

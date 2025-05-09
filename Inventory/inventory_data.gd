@@ -18,17 +18,24 @@ func grab_slot_data(index: int) -> SlotData:
 
 func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	var slot_data = slot_datas[index]
-	
 	var return_slot_data: SlotData
 	if slot_data and slot_data.can_fully_merge_with(grabbed_slot_data):
 		slot_data.fully_merge_with(grabbed_slot_data)
 	else:
 		slot_datas[index] = grabbed_slot_data
 		return_slot_data = slot_data
-		
 	inventory_updated.emit(self)
 	return return_slot_data
 
 
+
 func on_slot_clicked(index: int, button: int) -> void:
 	inventory_interact.emit(self, index, button)
+	
+	
+func decrease_slot_quantity(index: int, amount: int) -> void:
+	if index >= 0 and index < slot_datas.size():
+		var slot = slot_datas[index]
+		slot.quantity -= amount
+		if slot.quantity <= 0:
+			slot_datas.remove_at(index)

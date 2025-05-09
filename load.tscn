@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://x6uuyg5ni1o4"]
 
-[ext_resource type="Script" uid="uid://dx1jcgrhelu1w" path="res://SaveLoad.gd" id="2_g58xu"]
+[ext_resource type="Script" uid="uid://cd6osbur35wvh" path="res://Save_and_Load_btns.gd" id="1_edu2m"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -33,7 +33,7 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "Save State 1"
-script = ExtResource("2_g58xu")
+script = ExtResource("1_edu2m")
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/Save_State_Btn" to="ColorRect/VBoxContainer/Save_State_Btn" method="_on_save_state_btn_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Save_State_Btn" to="ColorRect/VBoxContainer/Save_State_Btn" method="_on_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Save_State_Btn" to="ColorRect/VBoxContainer/Save_State_Btn" method="_on_save_state_btn_pressed"]

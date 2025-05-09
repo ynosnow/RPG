@@ -8,3 +8,8 @@ func _on_pressed() -> void:
 	var inventory_ui = get_tree().current_scene.get_node("UI/InventoryInterface")
 	if inventory_ui:
 		inventory_ui.visible = true
+
+
+func _on_map_btn_pressed() -> void:
+	SaveManager._save()
+	get_tree().change_scene_to_file("res://Map.tscn")

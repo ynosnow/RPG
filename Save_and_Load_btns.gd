@@ -1,7 +1,5 @@
 extends Node
 
-const save_location := "user://SaveFile.tres"
-
 func _on_load_pressed():
 	var ui = get_tree().current_scene.get_node("UI")
 	var game_menu = ui.get_node("GameMenu")

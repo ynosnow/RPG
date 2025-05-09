@@ -5,11 +5,16 @@ extends Node2D
 @onready var player: CharacterBody2D = $Player
 @onready var inventory_interface: Control = $UI/InventoryInterface
 
-
 func _ready() -> void:
-	inventory_interface.set_player_inventory_data(player.inventory_data)
-	
-	
+	call_deferred("_init_inventory")
+	if Global.hide_menu_on_start:
+		Global.hide_menu_on_start = false  
+		var menu = get_node("UI/Menu")
+		if menu:
+			menu.visible = false
+		await get_tree().process_frame 
+		SaveManager._load()
+
 func _input(event):
 	if event.is_action_pressed("toggle_inventory"):
 		if inventory_ui:
@@ -22,3 +27,13 @@ func _input(event):
 			break_menu_ui.visible = not break_menu_ui.visible
 			if inventory_ui and break_menu_ui.visible:
 				inventory_ui.visible = false
+				
+	if event.is_action_pressed("toggle_map"):
+			SaveManager._save()
+			get_tree().change_scene_to_file("res://Map.tscn")
+		
+			
+				
+func _init_inventory():
+	if inventory_interface and player:
+		inventory_interface.set_player_inventory_data(player.inventory_data)

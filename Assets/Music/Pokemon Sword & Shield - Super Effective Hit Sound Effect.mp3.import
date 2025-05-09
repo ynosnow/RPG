@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0gkrenk6p4nk"
+path="res://.godot/imported/Pokemon Sword & Shield - Super Effective Hit Sound Effect.mp3-339d8c36663c4c69df3d73062c367a17.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Pokemon Sword & Shield - Super Effective Hit Sound Effect.mp3"
+dest_files=["res://.godot/imported/Pokemon Sword & Shield - Super Effective Hit Sound Effect.mp3-339d8c36663c4c69df3d73062c367a17.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

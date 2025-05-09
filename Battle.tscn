@@ -1,0 +1,329 @@
+[gd_scene load_steps=20 format=3 uid="uid://klgg3htii82u"]
+
+[ext_resource type="FontFile" uid="uid://dh4w8na081n4q" path="res://m5x7.ttf" id="1_lul25"]
+[ext_resource type="Texture2D" uid="uid://b11ky0llep1nd" path="res://Assets/charakter_2.png" id="1_u8cu3"]
+[ext_resource type="Script" uid="uid://cerso8n3i6vr4" path="res://battle.gd" id="1_yh5fh"]
+[ext_resource type="Script" uid="uid://clwct2j2okfna" path="res://inventory_interface.gd" id="4_0500f"]
+[ext_resource type="AudioStream" uid="uid://da7g7iowhondv" path="res://Assets/Music/Wild Pokémon Battle - Pokémon RedBlueYellow Soundtrack.mp3" id="4_1046u"]
+[ext_resource type="AudioStream" uid="uid://b4g1t85fgdgmd" path="res://Assets/Music/Super Effective - Pokemon Sound Effects.mp3" id="5_pjn1s"]
+[ext_resource type="PackedScene" uid="uid://duek7n5v78tun" path="res://Inventory/Inventory.tscn" id="5_sqcgj"]
+[ext_resource type="PackedScene" uid="uid://dl8usw21beukw" path="res://slot.tscn" id="6_ix2yc"]
+[ext_resource type="AudioStream" uid="uid://b616tc7qjgr7y" path="res://Assets/Music/WIN A BATTLE POKEMON - SOUND EFFECT.mp3" id="6_yflgj"]
+[ext_resource type="AudioStream" uid="uid://cr1o3g6h336xx" path="res://Assets/Music/Pokémon RedBlueYellow - Run Away - Sound Effect.mp3" id="7_lrdw4"]
+[ext_resource type="AudioStream" uid="uid://b0gkrenk6p4nk" path="res://Assets/Music/Pokemon Sword & Shield - Super Effective Hit Sound Effect.mp3" id="8_3hmwm"]
+[ext_resource type="PackedScene" uid="uid://c1b8ixx42r41l" path="res://player.tscn" id="12_sqcgj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lul25"]
+bg_color = Color(0.768116, 0.0436692, 1.92523e-07, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8cu3"]
+bg_color = Color(2.21401e-06, 0.725738, 0.190465, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yh5fh"]
+bg_color = Color(0, 0, 0, 0.2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjn1s"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1046u"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yflgj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqcgj"]
+bg_color = Color(0, 0, 0, 0.2)
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yh5fh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -65.0
+offset_right = 101.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_lul25")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u8cu3")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="VBoxContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_lul25")
+theme_override_font_sizes/font_size = 24
+text = "HP: 25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_u8cu3")
+stretch_mode = 4
+
+[node name="PlayerPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 295.0
+offset_right = -10.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yh5fh")
+
+[node name="PlayerData" type="HBoxContainer" parent="PlayerPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="PlayerPanel/PlayerData"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerPanel/PlayerData"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_lul25")
+theme_override_font_sizes/font_size = 50
+text = "Player"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerPanel/PlayerData"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_lul25")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u8cu3")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="PlayerPanel/PlayerData/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -16.0
+offset_right = 59.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_lul25")
+theme_override_font_sizes/font_size = 40
+text = "HP: 25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionsPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(640, 64)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yh5fh")
+
+[node name="Actions" type="HBoxContainer" parent="ActionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Attack" type="Button" parent="ActionsPanel/Actions"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_lul25")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_pjn1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1046u")
+text = "Attack"
+
+[node name="Item" type="Button" parent="ActionsPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_lul25")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_pjn1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1046u")
+text = "Item"
+
+[node name="UI" type="CanvasLayer" parent="ActionsPanel/Actions/Item"]
+
+[node name="InventoryInterface" type="Control" parent="ActionsPanel/Actions/Item/UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 216.0
+offset_right = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_0500f")
+
+[node name="PlayerInventory" parent="ActionsPanel/Actions/Item/UI/InventoryInterface" instance=ExtResource("5_sqcgj")]
+layout_mode = 1
+offset_left = -190.0
+offset_top = 20.0
+offset_right = -150.0
+offset_bottom = 60.0
+
+[node name="GrabbedSlot" parent="ActionsPanel/Actions/Item/UI/InventoryInterface" instance=ExtResource("6_ix2yc")]
+visible = false
+modulate = Color(1, 1, 1, 0.490196)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+
+[node name="Run" type="Button" parent="ActionsPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_lul25")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_pjn1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1046u")
+text = "Flee"
+
+[node name="TextBox" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 90.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yflgj")
+
+[node name="DialogLabel" type="Label" parent="TextBox"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_lul25")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ticker" type="Label" parent="TextBox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_lul25")
+theme_override_font_sizes/font_size = 47
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1046u")
+
+[node name="Hit Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_pjn1s")
+
+[node name="Win Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_yflgj")
+
+[node name="Flee Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_lrdw4")
+
+[node name="Super Effective Hit Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_3hmwm")
+volume_db = 24.0
+
+[node name="Player" parent="." instance=ExtResource("12_sqcgj")]
+visible = false
+position = Vector2(320, 180)
+platform_on_leave = 2
+
+[node name="MarginPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -65.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sqcgj")
+
+[connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="ActionsPanel/Actions/Item" to="." method="_on_item_pressed"]
+[connection signal="pressed" from="ActionsPanel/Actions/Run" to="." method="_on_run_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4g1t85fgdgmd"
+path="res://.godot/imported/Super Effective - Pokemon Sound Effects.mp3-70dabeee72c164da70fca121d8d34267.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Super Effective - Pokemon Sound Effects.mp3"
+dest_files=["res://.godot/imported/Super Effective - Pokemon Sound Effects.mp3-70dabeee72c164da70fca121d8d34267.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

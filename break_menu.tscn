@@ -87,5 +87,6 @@ text = "X"
 script = ExtResource("2_r3rpf")
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Inventory_Btn" to="ColorRect/VBoxContainer/Inventory_Btn" method="_on_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Map_Btn" to="ColorRect/VBoxContainer/Inventory_Btn" method="_on_map_btn_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/More_Btn" to="ColorRect/VBoxContainer/More_Btn" method="_on_pressed"]
 [connection signal="pressed" from="Exit_Btn" to="Exit_Btn" method="_on_pressed"]

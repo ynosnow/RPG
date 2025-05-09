@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b616tc7qjgr7y"
+path="res://.godot/imported/WIN A BATTLE POKEMON - SOUND EFFECT.mp3-d0628c86212080d3a4d6764da88f9048.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/WIN A BATTLE POKEMON - SOUND EFFECT.mp3"
+dest_files=["res://.godot/imported/WIN A BATTLE POKEMON - SOUND EFFECT.mp3-d0628c86212080d3a4d6764da88f9048.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

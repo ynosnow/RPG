@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_yiyt4")
-name = ""
-description = ""
+name = "Apple"
+description = "Heal 25HP"
 stackable = false
 texture = ExtResource("2_md3ms")
 metadata/_custom_type_script = "uid://djryq6qy558r7"
