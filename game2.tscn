@@ -15,20 +15,19 @@
 [ext_resource type="Texture2D" uid="uid://bsosx25ptypxc" path="res://Assets/bench.png" id="12_iotsf"]
 [ext_resource type="Texture2D" uid="uid://bvbjdy0f6jors" path="res://Assets/tree_park.png" id="13_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://c6g7m6fkfrmfy" path="res://Assets/stand_hotdog.png" id="14_215e1"]
-[ext_resource type="Texture2D" uid="uid://6qv7bxxjjjpj" path="res://Assets/shop_chinese.png" id="16_80cx4"]
 [ext_resource type="Texture2D" uid="uid://r6dk68oigpau" path="res://Assets/shop_chinese_top.png" id="17_e8heu"]
 [ext_resource type="Texture2D" uid="uid://bdj7esu82impv" path="res://Assets/main_charakter1.png" id="19_x5p1p"]
 [ext_resource type="Texture2D" uid="uid://cydq8bgbc4n0v" path="res://Assets/main_charakter2.png" id="20_qhcbd"]
 [ext_resource type="Texture2D" uid="uid://5jtymv3t4kub" path="res://Assets/main_charakter3.png" id="21_f1jbl"]
 [ext_resource type="Texture2D" uid="uid://ndqnta07018b" path="res://Assets/main_charakter4.png" id="22_vaj68"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80nbo"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vfwdf"]
 texture = ExtResource("1_80nbo")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fc0e3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5gpan"]
 texture = ExtResource("2_feb5d")
 0:0/0 = 0
 1:0/0 = 0
@@ -45,7 +44,7 @@ texture = ExtResource("2_feb5d")
 0:2/0 = 0
 1:2/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80cx4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuj7l"]
 texture = ExtResource("3_7sc4i")
 0:0/0 = 0
 1:0/0 = 0
@@ -58,15 +57,17 @@ texture = ExtResource("3_7sc4i")
 2:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_feb5d"]
-sources/0 = SubResource("TileSetAtlasSource_80nbo")
-sources/1 = SubResource("TileSetAtlasSource_fc0e3")
-sources/2 = SubResource("TileSetAtlasSource_80cx4")
+sources/0 = SubResource("TileSetAtlasSource_vfwdf")
+sources/1 = SubResource("TileSetAtlasSource_5gpan")
+sources/2 = SubResource("TileSetAtlasSource_nuj7l")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvswv"]
 size = Vector2(99, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e36ub"]
 size = Vector2(43, 31.5)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_boqrt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_boyg6"]
 size = Vector2(19, 5)
@@ -129,7 +130,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="ShopChinese" type="Sprite2D" parent="."]
 position = Vector2(757, 191)
-texture = ExtResource("16_80cx4")
+texture = SubResource("CompressedTexture2D_boqrt")
 
 [node name="Heinrich" parent="." instance=ExtResource("5_7jktm")]
 position = Vector2(264, 104)

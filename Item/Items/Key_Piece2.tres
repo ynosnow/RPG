@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ckgmmt1qnl13h"]
+
+[ext_resource type="Script" uid="uid://djryq6qy558r7" path="res://Item/item_data.gd" id="1_w5qb8"]
+[ext_resource type="Texture2D" uid="uid://cgellk6e7010v" path="res://Item/key_piece2_texture.tres" id="2_xwcsa"]
+
+[resource]
+script = ExtResource("1_w5qb8")
+name = "Key Piece2"
+description = "the second piece"
+stackable = false
+texture = ExtResource("2_xwcsa")
+metadata/_custom_type_script = "uid://djryq6qy558r7"

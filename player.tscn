@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1b8ixx42r41l"]
+[gd_scene load_steps=8 format=3 uid="uid://c1b8ixx42r41l"]
 
 [ext_resource type="Script" uid="uid://cmn666qjvkafu" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Resource" uid="uid://o24jfbmgvyr2" path="res://test_inv.tres" id="2_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://cydq8bgbc4n0v" path="res://Assets/main_charakter2.png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://5jtymv3t4kub" path="res://Assets/main_charakter3.png" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://ndqnta07018b" path="res://Assets/main_charakter4.png" id="4_1jxqw"]
@@ -10,7 +11,9 @@
 height = 42.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_onrkg")
+inventory_data = ExtResource("2_2hs0m")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

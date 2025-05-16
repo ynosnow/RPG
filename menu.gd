@@ -6,11 +6,8 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_new_game_pressed() -> void:
-	var menu = get_tree().current_scene.get_node("UI/Menu")
-	if menu:
-		menu.visible = false
-		menu_visible = false
-	SaveManager._save()  
+	SaveManager.reset_save_data()
+	get_tree().change_scene_to_file("res://intro.tscn") 
 
 func _on_load_game_pressed() -> void:
 	var menu = get_tree().current_scene.get_node("UI/Menu")

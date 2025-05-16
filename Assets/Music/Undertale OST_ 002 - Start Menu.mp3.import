@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3idars233ilk"
+path="res://.godot/imported/Undertale OST_ 002 - Start Menu.mp3-da56439953a5972045a20d5d41dd2846.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Undertale OST_ 002 - Start Menu.mp3"
+dest_files=["res://.godot/imported/Undertale OST_ 002 - Start Menu.mp3-da56439953a5972045a20d5d41dd2846.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

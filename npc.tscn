@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dfqoi3y6igqay"]
 
 [ext_resource type="Script" uid="uid://dnsv8jb3ulfj8" path="res://talk_btn.gd" id="1_ideak"]
-[ext_resource type="AudioStream" uid="uid://da7g7iowhondv" path="res://Assets/Music/Wild Pokémon Battle - Pokémon RedBlueYellow Soundtrack.mp3" id="2_xxcha"]
+[ext_resource type="AudioStream" uid="uid://da7g7iowhondv" path="res://Assets/Music/Wild Pok�mon Battle - Pok�mon RedBlueYellow Soundtrack.mp3" id="2_xxcha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y523t"]
 size = Vector2(72, 56)

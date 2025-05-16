@@ -6,6 +6,12 @@ extends PanelContainer
 signal slot_clicked(index: int, button: int)
 
 func set_slot_data(slot_data: SlotData) -> void:
+	if slot_data == null or slot_data.item_data == null:
+		texture_rect.texture = null
+		tooltip_text = ""
+		quantity_label.hide()
+		return
+
 	var item_data = slot_data.item_data
 	texture_rect.texture = item_data.texture
 	tooltip_text = "%s\n%s" % [item_data.name, item_data.description]
@@ -15,6 +21,7 @@ func set_slot_data(slot_data: SlotData) -> void:
 		quantity_label.show()
 	else:
 		quantity_label.hide()
+
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton \
 			and (event.button_index == MOUSE_BUTTON_LEFT \

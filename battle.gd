@@ -87,6 +87,7 @@ func _on_attack_pressed() -> void:
 			SaveManager._save_hp_only()
 			await self.textbox_closed
 			Global.hide_menu_on_start = true
+			Global.fight_comleted = true
 			await get_tree().change_scene_to_file("res://game.tscn")
 		else:
 			enemy_counterattack()

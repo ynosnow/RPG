@@ -44,3 +44,19 @@ func _save_position_only():
 		ResourceSaver.save(SaveFileData, save_location)
 	else:
 		print("Player node not found for saving position.")
+
+# New function to reset all save stats
+func reset_save_data():
+
+	SaveFileData.player_position = Vector2.ZERO
+	
+	
+	SaveFileData.player_current_hp = 100
+	SaveFileData.player_max_hp = 100
+	
+	
+	SaveFileData.inventory = null
+	
+
+	ResourceSaver.save(SaveFileData, save_location)
+	print("Save data has been reset.")

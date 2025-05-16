@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://mgtd63gdg7vq"]
+
+[ext_resource type="Script" uid="uid://dgrd36x271acg" path="res://intro.gd" id="1_7a8ye"]
+[ext_resource type="Texture2D" uid="uid://c8iujqrsyp4yb" path="res://Assets/Places/classroom.png" id="1_s2ta7"]
+[ext_resource type="Texture2D" uid="uid://owujvd556b10" path="res://Assets/Teacher_Physics_withHat.png" id="2_ayt76"]
+[ext_resource type="Texture2D" uid="uid://big76on2v48sq" path="res://Assets/Places/Test.png" id="4_0a7ni"]
+[ext_resource type="PackedScene" uid="uid://c1b8ixx42r41l" path="res://player.tscn" id="5_y72e6"]
+
+[node name="Intro" type="Node"]
+script = ExtResource("1_7a8ye")
+
+[node name="Classroom" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("1_s2ta7")
+
+[node name="TeacherPhysics" type="Sprite2D" parent="Classroom"]
+position = Vector2(140, -42)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_ayt76")
+
+[node name="Test" type="Node" parent="."]
+
+[node name="Test" type="Sprite2D" parent="Test"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(320, 180)
+texture = ExtResource("4_0a7ni")
+
+[node name="TestInput" type="TextEdit" parent="Test"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -71.0
+offset_right = -74.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Story" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -279.0
+offset_top = -282.0
+offset_right = 274.0
+offset_bottom = -259.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Next_Btn" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -71.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Hand in"
+
+[node name="Player" parent="." instance=ExtResource("5_y72e6")]
+visible = false
+position = Vector2(320, 180)
+
+[connection signal="pressed" from="Next_Btn" to="." method="_on_next_btn_pressed"]

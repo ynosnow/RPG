@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfoxts52oxjjd"]
+[gd_scene load_steps=6 format=3 uid="uid://bfoxts52oxjjd"]
 
+[ext_resource type="Script" uid="uid://di7gmq6ibe2j8" path="res://break_menu.gd" id="1_41apv"]
 [ext_resource type="FontFile" uid="uid://dh4w8na081n4q" path="res://m5x7.ttf" id="1_filgf"]
 [ext_resource type="Script" uid="uid://cc2w2oqtcbo7y" path="res://Inventory/inventory_btn.gd" id="2_oivyh"]
 [ext_resource type="Script" uid="uid://d1ajwrxk0gij8" path="res://exit_btn.gd" id="2_r3rpf"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_41apv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 texture_filter = 2
@@ -88,5 +90,6 @@ script = ExtResource("2_r3rpf")
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Inventory_Btn" to="ColorRect/VBoxContainer/Inventory_Btn" method="_on_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Map_Btn" to="ColorRect/VBoxContainer/Inventory_Btn" method="_on_map_btn_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Quest_Btn" to="." method="_on_quest_btn_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/More_Btn" to="ColorRect/VBoxContainer/More_Btn" method="_on_pressed"]
 [connection signal="pressed" from="Exit_Btn" to="Exit_Btn" method="_on_pressed"]

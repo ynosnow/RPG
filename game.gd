@@ -4,8 +4,22 @@ extends Node2D
 @onready var break_menu_ui = get_node_or_null("UI/BreakMenu")
 @onready var player: CharacterBody2D = $Player
 @onready var inventory_interface: Control = $UI/InventoryInterface
+@onready var interact_button: Button = $Interact_Door
+@onready var shop_door_sprite: Sprite2D = $ShopChinese
+@onready var door_effect: ColorRect = $ShopChinese/DoorEffect
+
+var door_open = false
+var player_in_range = false
 
 func _ready() -> void:
+	if Global.hide_menu_on_start == false:
+		%MenuMusic.volume_db = -80
+		%MenuMusic.play()
+		var tween = create_tween()
+		tween.tween_property(%MenuMusic, "volume_db", 0, 7.0)  
+	else:
+		%MenuMusic.stop()
+	Global.location = "Overworld"
 	call_deferred("_init_inventory")
 	if Global.hide_menu_on_start:
 		Global.hide_menu_on_start = false  
@@ -14,6 +28,8 @@ func _ready() -> void:
 			menu.visible = false
 		await get_tree().process_frame 
 		SaveManager._load()
+	interact_button.visible = false
+	door_effect.visible = false
 
 func _input(event):
 	if event.is_action_pressed("toggle_inventory"):
@@ -31,13 +47,41 @@ func _input(event):
 	if event.is_action_pressed("toggle_map"):
 			SaveManager._save()
 			get_tree().change_scene_to_file("res://Map.tscn")
-		
-			
-				
+
 func _init_inventory():
 	if inventory_interface and player:
 		inventory_interface.set_player_inventory_data(player.inventory_data)
 
-
 func _on_chinese_entrance_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://chinese_shop.tscn")
+	if door_open and body == player:
+		get_tree().change_scene_to_file("res://chinese_shop.tscn")
+
+func _on_interact_door_pressed() -> void:
+	if player_in_range:
+		if has_key():
+			if not door_open:
+				door_open = true
+				shop_door_sprite.texture = preload("res://Assets/shop_chinese_open.png")
+				door_effect.visible = true
+				interact_button.visible = false
+		else:
+			print("Du hast den Schlüssel nicht!")
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body == player:
+		player_in_range = true
+		interact_button.visible = true
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body == player:
+		player_in_range = false
+		interact_button.visible = false
+
+func has_key() -> bool:
+	var inventory = player.inventory_data
+	if inventory == null:
+		return false
+	for slot_data in inventory.slot_datas:
+		if slot_data and slot_data.item_data and slot_data.item_data.name == "Key":
+			return true
+	return false

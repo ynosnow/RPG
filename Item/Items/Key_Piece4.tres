@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b1jjpgdw0q04p"]
+
+[ext_resource type="Script" uid="uid://djryq6qy558r7" path="res://Item/item_data.gd" id="1_h512l"]
+[ext_resource type="Texture2D" uid="uid://dfjmln6btoeg7" path="res://Item/key_piece4_texture.tres" id="2_ebvmq"]
+
+[resource]
+script = ExtResource("1_h512l")
+name = "Key Piece4"
+description = "the fourth piece"
+stackable = false
+texture = ExtResource("2_ebvmq")
+metadata/_custom_type_script = "uid://djryq6qy558r7"

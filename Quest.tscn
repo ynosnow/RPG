@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhc4n5fkmf6oc"]
+
+[ext_resource type="Script" uid="uid://djmhsqet83uq1" path="res://quest.gd" id="1_m84pu"]
+[ext_resource type="FontFile" uid="uid://dh4w8na081n4q" path="res://m5x7.ttf" id="2_fq4jk"]
+
+[node name="Quest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m84pu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.309804, 0.309804, 0.309804, 1)
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(640, 50)
+layout_mode = 0
+offset_top = 60.0
+offset_right = 640.0
+offset_bottom = 130.0
+
+[node name="Label1" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 638.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("2_fq4jk")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="."]
+custom_minimum_size = Vector2(640, 50)
+layout_mode = 0
+offset_top = 140.0
+offset_right = 640.0
+offset_bottom = 210.0
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_right = 638.0
+offset_bottom = 70.0
+
+[node name="Panel3" type="Panel" parent="."]
+custom_minimum_size = Vector2(640, 50)
+layout_mode = 0
+offset_top = 220.0
+offset_right = 640.0
+offset_bottom = 290.0
+
+[node name="Label" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_right = 638.0
+offset_bottom = 54.0
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "X"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
