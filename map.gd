@@ -6,6 +6,10 @@ func _ready() -> void:
 		$"Overworld".visible = true
 	elif Global.location == "School":
 		$"School".visible = true
+	elif Global.location == "chinese_shop":
+		$"chinese_shop".visible = true
+	elif Global.location == "chinese_shop_underground":
+		$"chinese_shop_underground".visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,7 +23,10 @@ func _input(event):
 			Global.hide_menu_on_start = true
 		elif Global.location == "School":
 			get_tree().change_scene_to_file("res://Assets/School.tscn")
-
+		elif Global.location == "chinese_shop":
+			get_tree().change_scene_to_file("res://chinese_shop.tscn")
+		elif Global.location == "chinese_shop_underground":
+			get_tree().change_scene_to_file("res://chinese_shop.tscn")
 
 func _on_exit_btn_pressed() -> void:
 		if Global.location == "Overworld":
@@ -27,5 +34,8 @@ func _on_exit_btn_pressed() -> void:
 			Global.hide_menu_on_start = true
 		elif Global.location == "School":
 			await get_tree().change_scene_to_file("res://Assets/School.tscn")
-			
+		elif Global.location == "chinese_shop":
+			await get_tree().change_scene_to_file("res://chinese_shop.tscn")
+		elif Global.location == "chinese_shop_underground":
+			await get_tree().change_scene_to_file("res://chinese_shop.tscn")
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://biismmld4b6lj"]
+[gd_scene load_steps=46 format=4 uid="uid://biismmld4b6lj"]
 
 [ext_resource type="Script" uid="uid://bf38ycfoq1bnp" path="res://game.gd" id="1_iotsf"]
 [ext_resource type="TileSet" uid="uid://bbu26xfg0oi46" path="res://Assets/tilemap.tres" id="2_80cx4"]
@@ -83,6 +83,22 @@ size = Vector2(99, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_boyg6"]
 size = Vector2(43, 31.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfvwf"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhpj7"]
+bg_color = Color(2.21401e-06, 0.725738, 0.190465, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_vaj68"]
 script = ExtResource("24_f1jbl")
@@ -233,6 +249,46 @@ visible = false
 
 [node name="Menu" parent="UI" instance=ExtResource("17_e8heu")]
 
+[node name="LevelingBar" type="ProgressBar" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -73.0
+offset_top = -12.0
+offset_right = -10.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_xfvwf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dhpj7")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Level" type="Label" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -15.0
+offset_right = -74.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_vef74")
+theme_override_font_sizes/font_size = 15
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Pickup1" parent="." instance=ExtResource("23_qhcbd")]
 visible = false
 position = Vector2(140, 300)
@@ -269,6 +325,7 @@ parameters/looping = true
 
 [connection signal="body_entered" from="ShopChinese/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="ShopChineseTop/chinese_entrance" to="." method="_on_chinese_entrance_body_entered"]
+[connection signal="body_exited" from="ShopChineseTop/chinese_entrance" to="." method="_on_chinese_entrance_body_exited"]
 [connection signal="body_exited" from="StandHotDog" to="." method="_on_stand_hot_dog_body_exited"]
 [connection signal="body_entered" from="Heinrich" to="Heinrich" method="_on_body_entered"]
 [connection signal="body_exited" from="Heinrich" to="Heinrich" method="_on_body_exited"]

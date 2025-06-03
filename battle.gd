@@ -21,6 +21,12 @@ var is_player_turn = true
 
 
 func _ready() -> void:
+	if Global.opponent == "Heinrich":
+		$"VBoxContainer/Heinrich".visible = true
+		display_text("Heinrich has attacked you!")
+	else:
+		$"VBoxContainer/Chef".visible = true
+		display_text("Chef has attacked you!")
 	player.inventory_data = Global.inventory_data
 	player.can_move = false
 	call_deferred("_init_inventory")
@@ -30,7 +36,7 @@ func _ready() -> void:
 		player_stats["current_hp"] = max(player_stats["current_hp"], 1)
 		update_hp_bars()
 
-	display_text("Heinrich has attacked you!")
+	
 	await get_tree().create_timer(0.25).timeout
 	%ActionsPanel.show()
 	MusicPlayer.play_music(battle_music.stream)
@@ -83,12 +89,20 @@ func _on_attack_pressed() -> void:
 		if enemy_current_hp == 0:
 			MusicPlayer.stop_music()
 			display_text("You Win!")
+			await self.textbox_closed
+			display_text("You Gained 25 Exp")
 			$"Win Sound".play()
 			SaveManager._save_hp_only()
 			await self.textbox_closed
 			Global.hide_menu_on_start = true
 			Global.fight_comleted = true
-			await get_tree().change_scene_to_file("res://game.tscn")
+			Global.gain_xp(25)
+			SaveManager._save_xp_only()
+			if Global.location == "Overworld":
+				await get_tree().change_scene_to_file("res://game.tscn")
+			elif Global.location == "chinese_shop":
+				Global.chef_defeated = true
+				await get_tree().change_scene_to_file("res://chinese_shop.tscn")
 		else:
 			enemy_counterattack()
 
@@ -106,7 +120,10 @@ func _on_run_pressed() -> void:
 	$"Flee Sound".play()
 	await self.textbox_closed
 	Global.hide_menu_on_start = true
-	await get_tree().change_scene_to_file("res://game.tscn")
+	if Global.location == "Overworld":
+		await get_tree().change_scene_to_file("res://game.tscn")
+	elif Global.location == "chinese_shop":
+		await get_tree().change_scene_to_file("res://chinese_shop.tscn")
 
 func _on_item_pressed() -> void:
 	if inventory_ui:

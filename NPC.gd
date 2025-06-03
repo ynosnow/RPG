@@ -1,10 +1,11 @@
 extends Area2D
 
+@onready var player: CharacterBody2D = $Player
 var dialog_signal = false
 
 func _ready() -> void:
 	pass
-
+	
 func _process(_delta: float) -> void:
 	if Global.fight_comleted:
 		return  

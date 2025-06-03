@@ -10,10 +10,12 @@ func _ready() -> void:
 	player.inventory_data = Global.inventory_data
 	player.inventory_data.ensure_slot_count(12)
 	call_deferred("_init_inventory")
+	
 	SaveManager._load()
 
 func _process(delta: float) -> void:
 	pass
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == player:
@@ -49,3 +51,4 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 		if slot_data and slot_data.item_data:
 			print("Used item: %s" % slot_data.item_data.name)
 	inventory_interface.update_grabbed_slot()
+	

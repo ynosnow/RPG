@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://klgg3htii82u"]
+[gd_scene load_steps=21 format=3 uid="uid://klgg3htii82u"]
 
 [ext_resource type="FontFile" uid="uid://dh4w8na081n4q" path="res://m5x7.ttf" id="1_lul25"]
 [ext_resource type="Texture2D" uid="uid://b11ky0llep1nd" path="res://Assets/charakter_2.png" id="1_u8cu3"]
 [ext_resource type="Script" uid="uid://cerso8n3i6vr4" path="res://battle.gd" id="1_yh5fh"]
 [ext_resource type="Script" uid="uid://clwct2j2okfna" path="res://inventory_interface.gd" id="4_0500f"]
 [ext_resource type="AudioStream" uid="uid://da7g7iowhondv" path="res://Assets/Music/Wild Pok�mon Battle - Pok�mon RedBlueYellow Soundtrack.mp3" id="4_1046u"]
+[ext_resource type="Texture2D" uid="uid://8lcsxxed576t" path="res://Assets/charakter3.png" id="4_ix2yc"]
 [ext_resource type="AudioStream" uid="uid://b4g1t85fgdgmd" path="res://Assets/Music/Super Effective - Pokemon Sound Effects.mp3" id="5_pjn1s"]
 [ext_resource type="PackedScene" uid="uid://duek7n5v78tun" path="res://Inventory/Inventory.tscn" id="5_sqcgj"]
 [ext_resource type="PackedScene" uid="uid://dl8usw21beukw" path="res://slot.tscn" id="6_ix2yc"]
@@ -89,12 +90,22 @@ text = "HP: 25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+[node name="Heinrich" type="TextureRect" parent="VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(50, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_u8cu3")
+stretch_mode = 4
+
+[node name="Chef" type="TextureRect" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_ix2yc")
 stretch_mode = 4
 
 [node name="PlayerPanel" type="Panel" parent="."]
@@ -291,6 +302,7 @@ vertical_alignment = 1
 
 [node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_1046u")
+volume_db = -40.0
 
 [node name="Hit Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_pjn1s")

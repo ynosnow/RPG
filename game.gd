@@ -12,13 +12,16 @@ var door_open = false
 var player_in_range = false
 
 func _ready() -> void:
-	if Global.hide_menu_on_start == false:
-		%MenuMusic.volume_db = -80
-		%MenuMusic.play()
-		var tween = create_tween()
-		tween.tween_property(%MenuMusic, "volume_db", 0, 7.0)  
-	else:
-		%MenuMusic.stop()
+	update_level_bar()
+	Global.opponent = "Heinrich"
+	Global.npc = "Heinrich"
+	#if Global.hide_menu_on_start == false:
+		#%MenuMusic.volume_db = -80
+		#%MenuMusic.play()
+		#var tween = create_tween()
+		#tween.tween_property(%MenuMusic, "volume_db", 0, 7.0)  
+	#else:
+		#%MenuMusic.stop()
 	Global.location = "Overworld"
 	call_deferred("_init_inventory")
 	if Global.hide_menu_on_start:
@@ -30,7 +33,13 @@ func _ready() -> void:
 		SaveManager._load()
 	interact_button.visible = false
 	door_effect.visible = false
-
+	
+func _process(delta: float) -> void:
+	if $"UI/Menu".visible == false and $"UI/LoadUi".visible == false:
+		%LevelingBar.visible = true
+		%Level.visible = true
+	if TransitionManager.is_transitioning == true:
+		$"UI".visible = false
 func _input(event):
 	if event.is_action_pressed("toggle_inventory"):
 		if inventory_ui:
@@ -85,3 +94,16 @@ func has_key() -> bool:
 		if slot_data and slot_data.item_data and slot_data.item_data.name == "Key":
 			return true
 	return false
+
+
+func _on_chinese_entrance_body_exited(body: Node2D) -> void:
+	if body == player:
+		player_in_range = false
+		interact_button.visible = false
+		
+func update_level_bar():
+	%LevelingBar.max_value = Global.xp_to_next_level
+	%LevelingBar.value = Global.xp
+	%Level.text = "Level " + str(Global.level)
+
+		

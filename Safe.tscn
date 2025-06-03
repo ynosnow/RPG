@@ -1,0 +1,125 @@
+[gd_scene load_steps=16 format=3 uid="uid://bgbvgntqpwh7f"]
+
+[ext_resource type="Script" uid="uid://45q5ny18gtpd" path="res://safe.gd" id="1_isfud"]
+[ext_resource type="Texture2D" uid="uid://do4pgswysjyty" path="res://Assets/safe_fpv.png" id="2_mcdnm"]
+[ext_resource type="Texture2D" uid="uid://bwjm1fapuoc0b" path="res://Assets/safe_fpv - Copy (3)2.png" id="3_p4ovb"]
+[ext_resource type="Texture2D" uid="uid://bnmmi6xbdn6on" path="res://Assets/safe_fpv - Copy (3)3.png" id="4_h354j"]
+[ext_resource type="Texture2D" uid="uid://bxs43dabu05x" path="res://Assets/safe_fpv - Copy (3)4.png" id="5_e641v"]
+[ext_resource type="Texture2D" uid="uid://37f6sec4m1l5" path="res://Assets/safe_fpv - Copy (3)5.png" id="6_ve6aa"]
+[ext_resource type="Texture2D" uid="uid://dgf8eqyakkrj" path="res://Assets/safe_fpv - Copy (3)6.png" id="7_gjvlq"]
+[ext_resource type="Texture2D" uid="uid://dyosqomeou155" path="res://Assets/safe_fpv - Copy (3)7.png" id="8_px48s"]
+[ext_resource type="Texture2D" uid="uid://csyqoqla3v4ot" path="res://Assets/safe_fpv - Copy (3)8.png" id="9_iyy2n"]
+[ext_resource type="Texture2D" uid="uid://cmgc0ctc8teky" path="res://Assets/safe_fpv - Copy (3)9.png" id="10_c74al"]
+[ext_resource type="Texture2D" uid="uid://diwt8mfq5rafq" path="res://Assets/safe_fpv - Copy (3)10.png" id="11_annl2"]
+[ext_resource type="Texture2D" uid="uid://be3dbvvar7l5c" path="res://Assets/safe_open.png" id="12_h354j"]
+[ext_resource type="AudioStream" uid="uid://snxgooxkjnw8" path="res://Assets/Music/Safe Lock Dial - Free Office Sound [High Quality].mp3" id="13_e641v"]
+[ext_resource type="AudioStream" uid="uid://cidsjjc558cot" path="res://Assets/Music/SAFE OPENING SOUND EFFECT.mp3" id="13_ve6aa"]
+[ext_resource type="AudioStream" uid="uid://6lnjq54fbtic" path="res://Assets/Music/Safe Opening Sound Effect (1).mp3" id="14_gjvlq"]
+
+[node name="Safe" type="Node2D"]
+script = ExtResource("1_isfud")
+
+[node name="Sprite2D0" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_mcdnm")
+
+[node name="Sprite2D1" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_p4ovb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_h354j")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_e641v")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_ve6aa")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("7_gjvlq")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("8_px48s")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("9_iyy2n")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("10_c74al")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("11_annl2")
+
+[node name="Exit" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 592.0
+offset_top = 2.0
+offset_right = 638.0
+offset_bottom = 47.0
+grow_horizontal = 0
+text = "X"
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 7.0
+offset_top = 136.0
+offset_right = 138.0
+offset_bottom = 176.0
+
+[node name="Label" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -21.0
+offset_right = 64.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Open" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("12_h354j")
+
+[node name="DialConfirm" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_ve6aa")
+volume_db = 24.0
+
+[node name="SafeOpened" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_gjvlq")
+volume_db = 24.0
+
+[node name="Dial" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_e641v")
+volume_db = 24.0
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

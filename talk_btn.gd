@@ -4,10 +4,18 @@ var Talk_Stage : int = 0
 var Text_finished = false
 
 func _ready() -> void:
-	if Global.fight_comleted == true:
-		reset_post_fight_dialog()
-	else:
+	Global.opponent == "Heinrich"
+	if Global.npc == "Heinrich":
+		if Global.fight_comleted == true:
+			reset_post_fight_dialog()
+		else:
+			%Talk_Btn.visible = true
+			%Panel.visible = false
+	elif Global.npc == "ChineseChef":
 		%Talk_Btn.visible = true
+		%Panel.visible = false
+	else:
+		%Talk_Btn.visible = false
 		%Panel.visible = false
 
 func reset_post_fight_dialog() -> void:
@@ -17,69 +25,95 @@ func reset_post_fight_dialog() -> void:
 	show_post_fight_dialog()
 
 func _on_pressed() -> void:
-	%Panel.visible = true
-	if Global.fight_comleted == true:
-		if Talk_Stage == 5:
-			%DialogLabel.text = "You did it!"
-			Talk_Stage += 1
-		elif Talk_Stage == 6:
-			%DialogLabel.text = "To continue you must find 4 Pieces"
-			show_pickups(true)
-			Talk_Stage += 1
-		elif Talk_Stage == 7:
-			%DialogLabel.text = "Of a key and I will shape it into a key"
-			Talk_Stage += 1
-		elif Talk_Stage == 8:
-			%DialogLabel.text = "Come back after collecting them"
-			%Panel.visible = false
-			Talk_Stage = 0
-		elif Talk_Stage == 0:
-			var player_node = get_node_or_null("/root/Game/Player")
-			if player_node:
-				Global.inventory_data = player_node.inventory_data
-			if has_all_key_pieces():
-				remove_key_pieces_and_add_key()
-				%DialogLabel.text = "You got the key pieces"
-				show_pickups(false)
-				Talk_Stage = 10
-				%Talk_Btn.visible = true
-			else:
-				%DialogLabel.text = "You didn't collect the key pieces"
-				Talk_Stage = 8
-		elif Talk_Stage == 9:
-			%DialogLabel.text = "Thanks for bringing the pieces!"
-		elif Talk_Stage == 10:
-			%Panel.visible = false
-			%Talk_Btn.visible = false
-			Talk_Stage = 0
+	if Global.npc == "Heinrich":
+		%Panel.visible = true
+		if Global.fight_comleted == true:
+			match Talk_Stage:
+				5:
+					%DialogLabel.text = "You did it!"
+					Talk_Stage += 1
+				6:
+					%DialogLabel.text = "To continue you must find 4 Pieces"
+					show_pickups(true)
+					Talk_Stage += 1
+				7:
+					%DialogLabel.text = "Of a key and I will shape it into a key"
+					Talk_Stage += 1
+				8:
+					%DialogLabel.text = "Come back after collecting them"
+					%Panel.visible = false
+					Talk_Stage = 0
+				0:
+					var player_node = get_node_or_null("/root/Game/Player")
+					if player_node:
+						Global.inventory_data = player_node.inventory_data
+					if has_all_key_pieces():
+						remove_key_pieces_and_add_key()
+						show_pickups(false)
+						%DialogLabel.text = "You got the key pieces"
+						Talk_Stage = 10
+					else:
+						%DialogLabel.text = "You didn't collect the key pieces"
+						Talk_Stage = 8
+				9:
+					%DialogLabel.text = "Thanks for bringing the pieces!"
+				10:
+					%DialogLabel.text = "This is the key"
+					Talk_Stage += 1
+				11:
+					%DialogLabel.text = "It unlocks the Chinese restaurant"
+					Talk_Stage += 1
+				12:
+					%DialogLabel.text = "There’s a basement under it with a hidden safe"
+					Talk_Stage += 1
+				13:
+					%DialogLabel.text = "But the safe needs a code"
+					Talk_Stage += 1
+				14:
+					%DialogLabel.text = "Search the restaurant. The code is hidden somewhere"
+					Talk_Stage += 1
+				15:
+					%DialogLabel.text = "Be careful... he might notice something's off"
+					Talk_Stage += 1
+				16:
+					%Panel.visible = false
+					%Talk_Btn.visible = false
+					Talk_Stage = 0
+				_:
+					Talk_Stage = 0
 		else:
-			Talk_Stage = 0
-	else:
-		if not Text_finished:
-			Talk_Stage += 1
-			if Talk_Stage == 1:
-				%DialogLabel.text = "Hey, you're the new guy right?"
-			elif Talk_Stage == 2:
-				%DialogLabel.text = "Beat me in a fight and I will help you."
-			elif Talk_Stage > 2:
-				%Panel.visible = false
-				%Talk_Btn.visible = false
-				Talk_Stage = 0
-				Text_finished = true
-				start_battle_transition()
+			if not Text_finished:
+				Talk_Stage += 1
+				if Talk_Stage == 1:
+					%DialogLabel.text = "Hey, you're the new guy right?"
+				elif Talk_Stage == 2:
+					%DialogLabel.text = "Beat me in a fight and I will help you."
+				elif Talk_Stage > 2:
+					%Panel.visible = false
+					%Talk_Btn.visible = false
+					Talk_Stage = 0
+					Text_finished = true
+					start_battle_transition()
+	elif Global.npc == "ChineseChef":
+		%Panel.visible = true
+		%DialogLabel.text = "What are you doing here"
 
 func show_post_fight_dialog() -> void:
-	if Talk_Stage == 5:
-		%DialogLabel.text = "You did it!"
-	elif Talk_Stage == 6:
-		%DialogLabel.text = "To continue you must find 4 Pieces"
-	elif Talk_Stage == 7:
-		%DialogLabel.text = "Of a key and I will shape it into a key"
-	elif Talk_Stage == 8:
-		%DialogLabel.text = "Come back after collecting them"
-	else:
-		%Panel.visible = false
-		%Talk_Btn.visible = false
+	if Global.opponent == "Heinrich":
+		if Talk_Stage == 5:
+			%DialogLabel.text = "You did it!"
+		elif Talk_Stage == 6:
+			%DialogLabel.text = "To continue you must find 4 Pieces"
+		elif Talk_Stage == 7:
+			%DialogLabel.text = "Of a key and I will shape it into a key"
+		elif Talk_Stage == 8:
+			%DialogLabel.text = "Come back after collecting them"
+		else:
+			%Panel.visible = false
+			%Talk_Btn.visible = false
+	elif Global.opponent == "Heinrich":
+		pass
+		#play sound 
 
 func show_pickups(visible: bool) -> void:
 	var pickups_paths = [
@@ -111,9 +145,6 @@ func has_all_key_pieces() -> bool:
 	var inventory = Global.inventory_data
 	if inventory == null:
 		return false
-	for slot_data in inventory.slot_datas:
-		if slot_data and slot_data.item_data:
-			pass
 	for piece_name in needed_pieces:
 		var found = false
 		for slot_data in inventory.slot_datas:

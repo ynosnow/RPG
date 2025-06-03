@@ -71,6 +71,6 @@ text = "RPG"
 
 [connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Load Game" to="." method="_on_load_game_pressed"]
-[connection signal="pressed" from="VBoxContainer/Load Game" to="VBoxContainer/Load Game" method="_on_load_game_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/Load Game" to="VBoxContainer/Load Game" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Load Game" to="VBoxContainer/Load Game" method="_on_load_game_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

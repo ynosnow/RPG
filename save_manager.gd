@@ -5,6 +5,9 @@ var SaveFileData: SaveDataResource = SaveDataResource.new()
 
 func _save():
 	var player = get_tree().current_scene.get_node("Player")
+	SaveFileData.xp = Global.xp
+	SaveFileData.xp_to_next_level = Global.xp_to_next_level
+	SaveFileData.level = Global.level
 	if player:
 		SaveFileData.player_position = player.position
 		SaveFileData.player_current_hp = player.current_hp
@@ -19,6 +22,9 @@ func _load():
 		var player = get_tree().current_scene.get_node("Player")
 		if player:
 			await get_tree().create_timer(0.0).timeout
+			Global.xp = SaveFileData.xp
+			Global.xp_to_next_level = SaveFileData.xp_to_next_level
+			Global.level = SaveFileData.level
 			player.position = SaveFileData.player_position
 			player.current_hp = SaveFileData.player_current_hp
 			player.max_hp = SaveFileData.player_max_hp
@@ -45,6 +51,15 @@ func _save_position_only():
 	else:
 		print("Player node not found for saving position.")
 
+func _save_xp_only():
+	if Global:
+		SaveFileData.xp = Global.xp
+		SaveFileData.xp_to_next_level = Global.xp_to_next_level
+		SaveFileData.level = Global.level
+		ResourceSaver.save(SaveFileData, save_location)
+	else:
+		print("Global data not found for saving XP.")
+		
 # New function to reset all save stats
 func reset_save_data():
 
@@ -57,6 +72,8 @@ func reset_save_data():
 	
 	SaveFileData.inventory = null
 	
-
+	SaveFileData.xp = 0
+	SaveFileData.xp_to_next_level = 100 
+	SaveFileData.level = 1
 	ResourceSaver.save(SaveFileData, save_location)
 	print("Save data has been reset.")

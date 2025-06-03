@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://epjjkq5iymaq"]
+
+[ext_resource type="Texture2D" uid="uid://d2gbdlegrmmvf" path="res://Assets/SafeCodeScene.png" id="1_lj5lt"]
+[ext_resource type="Script" uid="uid://b0sdjo6t8oe5b" path="res://safe_code.gd" id="2_teqms"]
+
+[node name="SafeCode" type="Sprite2D"]
+position = Vector2(323, 181)
+texture = ExtResource("1_lj5lt")
+script = ExtResource("2_teqms")
+
+[node name="Exit" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -365.0
+offset_top = -180.0
+offset_right = -324.0
+offset_bottom = -142.0
+grow_horizontal = 0
+text = "X"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

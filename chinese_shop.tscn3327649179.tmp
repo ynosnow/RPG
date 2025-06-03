@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://c04dgg442nati"]
+[gd_scene load_steps=21 format=4 uid="uid://c04dgg442nati"]
 
 [ext_resource type="Script" uid="uid://d2cekhd22jlba" path="res://chinese_shop.gd" id="1_cqddx"]
 [ext_resource type="TileSet" uid="uid://bncjfijsakmcp" path="res://Assets/Indoor_floor_tilemap.tres" id="2_ajs2m"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://8lcsxxed576t" path="res://Assets/charakter3.png" id="16_0d8ue"]
 [ext_resource type="Texture2D" uid="uid://cebghqtgux6td" path="res://Assets/Safe.png" id="16_23apk"]
 [ext_resource type="Texture2D" uid="uid://oaucfa3rhmlw" path="res://Assets/Safe_Code.png" id="17_23apk"]
-[ext_resource type="Texture2D" uid="uid://b3n2ngej5xo3l" path="res://Assets/Treppe2.png" id="18_pdg8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40c6n"]
 size = Vector2(69, 63)
@@ -25,14 +24,8 @@ size = Vector2(69, 63)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqddx"]
 size = Vector2(66, 40.4375)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdg8n"]
-size = Vector2(49.5, 50)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23apk"]
 size = Vector2(35.2316, 34)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7a3jj"]
-size = Vector2(40, 22.5)
 
 [node name="Chinese_Shop" type="Node2D"]
 script = ExtResource("1_cqddx")
@@ -53,13 +46,8 @@ texture = ExtResource("5_vuker")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 position = Vector2(0, 900)
-tile_map_data = PackedByteArray("AAD6//z/AAABAAAAAAD6//3/AAABAAAAAAD6//7/AAABAAAAAAD6////AAABAAAAAAD6/wAAAAABAAAAAAD6/wEAAAABAAAAAAD6/wIAAAABAAAAAAD6/wMAAAABAAAAAAD6/wQAAAABAAAAAAD7/wQAAAABAAAAAAD8/wQAAAABAAAAAAD9/wQAAAABAAAAAAD+/wQAAAABAAAAAAD//wQAAAABAAAAAAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAAEAAQAAAABAAAAAAAFAAQAAAABAAAAAAAGAAQAAAABAAAAAAAHAAQAAAABAAAAAAAIAAQAAAABAAAAAAAJAAQAAAABAAAAAAAJAAMAAAABAAAAAAAJAAIAAAABAAAAAAAJAAEAAAABAAAAAAAJAAAAAAABAAAAAAAJAP//AAABAAAAAAAJAP7/AAABAAAAAAAJAP3/AAABAAAAAAAJAPz/AAABAAAAAAAIAPz/AAABAAAAAAAHAPz/AAABAAAAAAAGAPz/AAABAAAAAAAFAPz/AAABAAAAAAAEAPz/AAABAAAAAAADAPz/AAABAAAAAAACAPz/AAABAAAAAAABAPz/AAABAAAAAAAAAPz/AAABAAAAAAD///z/AAABAAAAAAD+//z/AAABAAAAAAD9//z/AAABAAAAAAD8//z/AAABAAAAAAD7//z/AAABAAAAAAD7//3/AAACAAMAAAD7//7/AAACAAMAAAD7////AAAAAAMAAAD7/wAAAAACAAAAAAD7/wEAAAACAAAAAAD7/wIAAAACAAAAAAD7/wMAAAACAAAAAAD8/wMAAAACAAAAAAD9/wMAAAACAAAAAAD+/wMAAAACAAAAAAD//wMAAAACAAAAAAAAAAMAAAACAAAAAAABAAMAAAACAAAAAAACAAMAAAACAAAAAAADAAMAAAACAAAAAAAEAAMAAAACAAAAAAAFAAMAAAACAAAAAAAGAAMAAAACAAAAAAAHAAMAAAACAAAAAAAIAAMAAAACAAAAAAAIAAIAAAACAAAAAAAIAAEAAAACAAAAAAAIAAAAAAACAAAAAAAIAP//AAACAAAAAAAIAP7/AAACAAAAAAAIAP3/AAACAAAAAAAHAP3/AAACAAAAAAAGAP3/AAACAAAAAAAFAP3/AAACAAAAAAAEAP3/AAACAAAAAAADAP3/AAACAAAAAAACAP3/AAACAAAAAAABAP3/AAACAAAAAAAAAP3/AAACAAAAAAD///3/AAACAAMAAAD+//3/AAACAAMAAAD9//3/AAACAAMAAAD8//3/AAACAAMAAAD8//7/AAACAAMAAAD8////AAAAAAMAAAD8/wAAAAACAAAAAAD8/wEAAAACAAAAAAD8/wIAAAACAAAAAAD9/wIAAAACAAAAAAD+/wIAAAACAAAAAAD//wIAAAACAAAAAAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAACAAIAAAACAAAAAAADAAIAAAACAAAAAAAEAAIAAAACAAAAAAAFAAIAAAACAAAAAAAGAAIAAAACAAAAAAAHAAIAAAACAAAAAAAHAAEAAAACAAAAAAAHAAAAAAACAAAAAAAHAP//AAACAAAAAAAHAP7/AAACAAAAAAAFAP7/AAACAAAAAAAEAP7/AAACAAAAAAADAP7/AAACAAAAAAACAP7/AAACAAAAAAABAP7/AAACAAAAAAAAAP7/AAACAAAAAAD///7/AAACAAMAAAD+//7/AAACAAMAAAD9//7/AAACAAMAAAD9////AAAAAAMAAAD9/wAAAAACAAAAAAD9/wEAAAACAAAAAAD+/wAAAAACAAAAAAD+////AAAAAAMAAAD+/wEAAAACAAAAAAD//wAAAAACAAAAAAD/////AAAAAAMAAAD//wEAAAACAAAAAAAAAAAAAAACAAAAAAAAAP//AAACAAAAAAABAP//AAACAAAAAAABAAAAAAACAAAAAAABAAEAAAACAAAAAAAAAAEAAAACAAAAAAACAAAAAAACAAAAAAADAAAAAAACAAAAAAADAP//AAACAAAAAAACAP//AAACAAAAAAACAAEAAAACAAAAAAADAAEAAAACAAAAAAAEAAEAAAACAAAAAAAEAAAAAAACAAAAAAAEAP//AAACAAAAAAAFAAEAAAACAAAAAAAFAAAAAAACAAAAAAAFAP//AAACAAAAAAAGAP//AAACAAAAAAAGAAAAAAACAAAAAAAGAAEAAAACAAAAAAAGAP7/AAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD6//z/AAABAAAAAAD6//3/AAABAAAAAAD6//7/AAABAAAAAAD6////AAABAAAAAAD6/wAAAAABAAAAAAD6/wEAAAABAAAAAAD6/wIAAAABAAAAAAD6/wMAAAABAAAAAAD6/wQAAAABAAAAAAD7/wQAAAABAAAAAAD8/wQAAAABAAAAAAD9/wQAAAABAAAAAAD+/wQAAAABAAAAAAD//wQAAAABAAAAAAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAAEAAQAAAABAAAAAAAFAAQAAAABAAAAAAAGAAQAAAABAAAAAAAHAAQAAAABAAAAAAAIAAQAAAABAAAAAAAJAAQAAAABAAAAAAAJAAMAAAABAAAAAAAJAAIAAAABAAAAAAAJAAEAAAABAAAAAAAJAAAAAAABAAAAAAAJAP//AAABAAAAAAAJAP7/AAABAAAAAAAJAP3/AAABAAAAAAAJAPz/AAABAAAAAAAIAPz/AAABAAAAAAAHAPz/AAABAAAAAAAGAPz/AAABAAAAAAAFAPz/AAABAAAAAAAEAPz/AAABAAAAAAADAPz/AAABAAAAAAACAPz/AAABAAAAAAABAPz/AAABAAAAAAAAAPz/AAABAAAAAAD///z/AAABAAAAAAD+//z/AAABAAAAAAD9//z/AAABAAAAAAD8//z/AAABAAAAAAD7//z/AAABAAAAAAD7//3/AAACAAAAAAD7//7/AAACAAAAAAD7////AAACAAAAAAD7/wAAAAACAAAAAAD7/wEAAAACAAAAAAD7/wIAAAACAAAAAAD7/wMAAAACAAAAAAD8/wMAAAACAAAAAAD9/wMAAAACAAAAAAD+/wMAAAACAAAAAAD//wMAAAACAAAAAAAAAAMAAAACAAAAAAABAAMAAAACAAAAAAACAAMAAAACAAAAAAADAAMAAAACAAAAAAAEAAMAAAACAAAAAAAFAAMAAAACAAAAAAAGAAMAAAACAAAAAAAHAAMAAAACAAAAAAAIAAMAAAACAAAAAAAIAAIAAAACAAAAAAAIAAEAAAACAAAAAAAIAAAAAAACAAAAAAAIAP//AAACAAAAAAAIAP7/AAACAAAAAAAIAP3/AAACAAAAAAAHAP3/AAACAAAAAAAGAP3/AAACAAAAAAAFAP3/AAACAAAAAAAEAP3/AAACAAAAAAADAP3/AAACAAAAAAACAP3/AAACAAAAAAABAP3/AAACAAAAAAAAAP3/AAACAAAAAAD///3/AAACAAAAAAD+//3/AAACAAAAAAD9//3/AAACAAAAAAD8//3/AAACAAAAAAD8//7/AAACAAAAAAD8////AAACAAAAAAD8/wAAAAACAAAAAAD8/wEAAAACAAAAAAD8/wIAAAACAAAAAAD9/wIAAAACAAAAAAD+/wIAAAACAAAAAAD//wIAAAACAAAAAAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAACAAIAAAACAAAAAAADAAIAAAACAAAAAAAEAAIAAAACAAAAAAAFAAIAAAACAAAAAAAGAAIAAAACAAAAAAAHAAIAAAACAAAAAAAHAAEAAAACAAAAAAAHAAAAAAACAAAAAAAHAP//AAACAAAAAAAHAP7/AAACAAAAAAAFAP7/AAACAAAAAAAEAP7/AAACAAAAAAADAP7/AAACAAAAAAACAP7/AAACAAAAAAABAP7/AAACAAAAAAAAAP7/AAACAAAAAAD///7/AAACAAAAAAD+//7/AAACAAAAAAD9//7/AAACAAAAAAD9////AAACAAAAAAD9/wAAAAACAAAAAAD9/wEAAAACAAAAAAD+/wAAAAACAAAAAAD+////AAACAAAAAAD+/wEAAAACAAAAAAD//wAAAAACAAAAAAD/////AAACAAAAAAD//wEAAAACAAAAAAAAAAAAAAACAAAAAAAAAP//AAACAAAAAAABAP//AAACAAAAAAABAAAAAAACAAAAAAABAAEAAAACAAAAAAAAAAEAAAACAAAAAAACAAAAAAACAAAAAAADAAAAAAACAAAAAAADAP//AAACAAAAAAACAP//AAACAAAAAAACAAEAAAACAAAAAAADAAEAAAACAAAAAAAEAAEAAAACAAAAAAAEAAAAAAACAAAAAAAEAP//AAACAAAAAAAFAAEAAAACAAAAAAAFAAAAAAACAAAAAAAFAP//AAACAAAAAAAGAP//AAACAAAAAAAGAAAAAAACAAAAAAAGAAEAAAACAAAAAAAGAP7/AAACAAAAAAA=")
 tile_set = ExtResource("2_ajs2m")
-
-[node name="Treppe2" type="Sprite2D" parent="."]
-position = Vector2(-39.5, 875.75)
-scale = Vector2(1.64583, 1.45312)
-texture = ExtResource("18_pdg8n")
 
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(3, -68)
@@ -70,7 +58,7 @@ collision_mask = 3
 position = Vector2(-2.5, 7.5)
 shape = SubResource("RectangleShape2D_40c6n")
 
-[node name="Chef" type="Sprite2D" parent="Area2D2"]
+[node name="Heinrich" type="Sprite2D" parent="Area2D2"]
 texture = ExtResource("16_0d8ue")
 
 [node name="Button" type="Button" parent="Area2D2"]
@@ -246,17 +234,8 @@ layout_mode = 0
 [node name="LoadUi" parent="UI" instance=ExtResource("13_t5d5q")]
 visible = false
 
-[node name="SafeCollision" type="Area2D" parent="."]
-position = Vector2(-66, 949)
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeCollision"]
-position = Vector2(11.75, 7)
-shape = SubResource("RectangleShape2D_pdg8n")
-
 [node name="Safe" type="Sprite2D" parent="."]
-position = Vector2(-66, 948)
+position = Vector2(-66, 949)
 texture = ExtResource("16_23apk")
 
 [node name="SafeCode" type="Sprite2D" parent="."]
@@ -273,15 +252,6 @@ collision_mask = 3
 position = Vector2(16.6158, 38)
 shape = SubResource("RectangleShape2D_23apk")
 
-[node name="SafeButton" type="Button" parent="."]
-visible = false
-offset_left = -80.0
-offset_top = 908.0
-offset_right = -33.0
-offset_bottom = 930.0
-theme_override_font_sizes/font_size = 10
-text = "Interact"
-
 [node name="SafeCodeButton" type="Button" parent="."]
 visible = false
 offset_left = 109.0
@@ -291,15 +261,6 @@ offset_bottom = 854.0
 theme_override_font_sizes/font_size = 10
 text = "Interact"
 
-[node name="Upstairs" type="Area2D" parent="."]
-position = Vector2(-16, 872)
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Upstairs"]
-position = Vector2(-44, -8.25)
-shape = SubResource("RectangleShape2D_7a3jj")
-
 [connection signal="body_entered" from="Area2D2" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="." method="_on_body_exited"]
 [connection signal="pressed" from="Area2D2/Button" to="." method="_on_button_pressed"]
@@ -307,10 +268,5 @@ shape = SubResource("RectangleShape2D_7a3jj")
 [connection signal="body_entered" from="Downstairs" to="." method="_on_area_2d_4_body_entered"]
 [connection signal="body_entered" from="Area2D3" to="." method="_on_area_2d_3_body_entered"]
 [connection signal="pressed" from="UI/Menu_Btn" to="UI/Menu_Btn" method="_on_pressed"]
-[connection signal="body_entered" from="SafeCollision" to="." method="_on_safe_collision_body_entered"]
-[connection signal="body_exited" from="SafeCollision" to="." method="_on_safe_collision_body_exited"]
 [connection signal="body_entered" from="SafeCodeCollision" to="." method="_on_safe_code_collision_body_entered"]
-[connection signal="body_exited" from="SafeCodeCollision" to="." method="_on_safe_code_collision_body_exited"]
-[connection signal="pressed" from="SafeButton" to="." method="_on_safe_button_pressed"]
 [connection signal="pressed" from="SafeCodeButton" to="." method="_on_safe_code_button_pressed"]
-[connection signal="body_entered" from="Upstairs" to="." method="_on_upstairs_body_entered"]

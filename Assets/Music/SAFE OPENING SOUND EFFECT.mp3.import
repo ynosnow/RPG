@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cidsjjc558cot"
+path="res://.godot/imported/SAFE OPENING SOUND EFFECT.mp3-cff83f9f49b91d571cfa2bb12f2c1389.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/SAFE OPENING SOUND EFFECT.mp3"
+dest_files=["res://.godot/imported/SAFE OPENING SOUND EFFECT.mp3-cff83f9f49b91d571cfa2bb12f2c1389.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
