@@ -1,3 +1,14 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+.import/
+
+# OS/system files
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+
+# Backup and swap files
+*.swp
+*~
