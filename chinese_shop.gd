@@ -33,12 +33,13 @@ func _input(event):
 	if event.is_action_pressed("toggle_map"):
 		SaveManager._save()
 		get_tree().change_scene_to_file("res://Map.tscn")
-
+	if event.is_action_pressed("Interact"):
+		if $"Area2D2/Button".visible:
+			_on_button_pressed()
 func _init_inventory():
 	if inventory_interface and player:
 		inventory_interface.set_player_inventory_data(player.inventory_data)
 		player.inventory_data.inventory_interact.connect(on_inventory_interact)
-
 
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:
 	if button == MOUSE_BUTTON_LEFT:
@@ -51,16 +52,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 func _process(delta: float) -> void:
 	if Global.chef_defeated == true:
 		$"Area2D2/Chef".visible = false
-
-func _on_area_2d_2_body_entered(body: Node2D) -> void:
-	if body == player:
-		Global.hide_menu_on_start = true
-		await get_tree().change_scene_to_file("res://game.tscn")
 	
-func _on_area_2d_4_body_entered(body: Node2D) -> void:
-	if body == player:
-			player.position = Vector2(25,850)
-			Global.location = "chinese_shop_underground" 
 
 func _on_body_entered(body: Node2D) -> void:
 	if Global.chef_defeated == false:
@@ -133,3 +125,16 @@ func _on_upstairs_body_entered(body: Node2D) -> void:
 	if body == player:
 		player.position = Vector2(0,0)
 		Global.location = "chinese_shop" 
+
+
+func _on_downstairs_body_entered(body: Node2D) -> void:
+	if body == player:
+			player.position = Vector2(25,850)
+			Global.location = "chinese_shop_underground" 
+				
+func _on_exit_body_entered(body: Node2D) -> void:
+	if body == player:
+		player.position = Vector2(758.0,230.0)
+		SaveManager._save_position_only()
+		Global.hide_menu_on_start = true
+		await get_tree().change_scene_to_file("res://game.tscn")

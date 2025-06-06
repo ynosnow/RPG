@@ -63,6 +63,7 @@ func _init_inventory():
 
 func _on_chinese_entrance_body_entered(body: Node2D) -> void:
 	if door_open and body == player:
+		SaveManager._save()
 		get_tree().change_scene_to_file("res://chinese_shop.tscn")
 
 func _on_interact_door_pressed() -> void:
@@ -107,3 +108,8 @@ func update_level_bar():
 	%Level.text = "Level " + str(Global.level)
 
 		
+
+
+func _on_school_collision_body_entered(body: Node2D) -> void:
+	SaveManager._save()
+	await get_tree().change_scene_to_file("res://Assets/School.tscn")

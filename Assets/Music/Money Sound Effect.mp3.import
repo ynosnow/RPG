@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxptcetnl4yxq"
+path="res://.godot/imported/Money Sound Effect.mp3-483533558c0a1e00c59bec17fc60ecac.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Money Sound Effect.mp3"
+dest_files=["res://.godot/imported/Money Sound Effect.mp3-483533558c0a1e00c59bec17fc60ecac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bgbvgntqpwh7f"]
+[gd_scene load_steps=18 format=3 uid="uid://bgbvgntqpwh7f"]
 
 [ext_resource type="Script" uid="uid://45q5ny18gtpd" path="res://safe.gd" id="1_isfud"]
 [ext_resource type="Texture2D" uid="uid://do4pgswysjyty" path="res://Assets/safe_fpv.png" id="2_mcdnm"]
@@ -15,6 +15,8 @@
 [ext_resource type="AudioStream" uid="uid://snxgooxkjnw8" path="res://Assets/Music/Safe Lock Dial - Free Office Sound [High Quality].mp3" id="13_e641v"]
 [ext_resource type="AudioStream" uid="uid://cidsjjc558cot" path="res://Assets/Music/SAFE OPENING SOUND EFFECT.mp3" id="13_ve6aa"]
 [ext_resource type="AudioStream" uid="uid://6lnjq54fbtic" path="res://Assets/Music/Safe Opening Sound Effect (1).mp3" id="14_gjvlq"]
+[ext_resource type="AudioStream" uid="uid://cxptcetnl4yxq" path="res://Assets/Music/Money Sound Effect.mp3" id="16_px48s"]
+[ext_resource type="Texture2D" uid="uid://ckrlley8qqvlt" path="res://Assets/safe_open_without_money.png" id="17_iyy2n"]
 
 [node name="Safe" type="Node2D"]
 script = ExtResource("1_isfud")
@@ -110,6 +112,15 @@ position = Vector2(320, 180)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("12_h354j")
 
+[node name="CollectMoney" type="Button" parent="Open"]
+custom_minimum_size = Vector2(400, 200)
+offset_left = -8.57143
+offset_top = -322.857
+offset_right = 391.429
+offset_bottom = -122.857
+theme_override_font_sizes/font_size = 60
+text = "Collect"
+
 [node name="DialConfirm" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_ve6aa")
 volume_db = 24.0
@@ -122,4 +133,15 @@ volume_db = 24.0
 stream = ExtResource("13_e641v")
 volume_db = 24.0
 
+[node name="MoneyCollect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_px48s")
+volume_db = 24.0
+
+[node name="OpenWithoutMoney" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("17_iyy2n")
+
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Open/CollectMoney" to="." method="_on_collect_money_pressed"]

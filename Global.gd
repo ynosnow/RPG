@@ -5,6 +5,8 @@ var xp: int = 0
 var xp_to_next_level: int = 100
 var cash: int = 0 #zum erhöhen Global.cash += 10000
 var location: String = ""
+var if_keys_picked_up = false
+var turn_text_off = false
 
 var player_stats = {
 	"max_hp": 100,
@@ -20,6 +22,8 @@ var fight_comleted = false
 var chinese_shop_entered = false
 var opponent = ""
 var chef_defeated = false
+var heinrich_dialog_finished = false
+
 
 
 func format_cash(amount: int) -> String:

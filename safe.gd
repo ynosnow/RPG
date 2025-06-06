@@ -85,3 +85,12 @@ func _play_safeopened_sound():
 	$"SafeOpened".play(7.8)
 	await get_tree().create_timer(2, false).timeout
 	$"SafeOpened".stop()
+
+
+func _on_collect_money_pressed() -> void:
+	Global.cash += 500000
+	$"MoneyCollect".play()
+	$"Open".visible = false
+	$"OpenWithoutMoney".visible = true
+	await get_tree().create_timer(1, false).timeout
+	$"MoneyCollect".stop()

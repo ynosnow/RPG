@@ -60,7 +60,7 @@ func _save_xp_only():
 	else:
 		print("Global data not found for saving XP.")
 		
-# New function to reset all save stats
+
 func reset_save_data():
 
 	SaveFileData.player_position = Vector2.ZERO
@@ -77,3 +77,25 @@ func reset_save_data():
 	SaveFileData.level = 1
 	ResourceSaver.save(SaveFileData, save_location)
 	print("Save data has been reset.")
+	
+func save_everything_but_position():
+	if Global:
+		SaveFileData.xp = Global.xp
+		SaveFileData.xp_to_next_level = Global.xp_to_next_level
+		SaveFileData.level = Global.level
+		ResourceSaver.save(SaveFileData, save_location)
+	else:
+		print("Global data not found for saving XP.")
+	var stats = Global.player_stats
+	if stats:
+		SaveFileData.player_current_hp = stats["current_hp"]
+		SaveFileData.player_max_hp = stats["max_hp"]
+		ResourceSaver.save(SaveFileData, save_location)
+	else:
+		print("No player stats found in Global!")
+	if SaveFileData.inventory:
+		var player = get_tree().current_scene.get_node("Player")
+		player.inventory_data = SaveFileData.inventory.duplicate(true)
+		var inventory_interface = get_tree().current_scene.get_node("UI/InventoryInterface")
+		if inventory_interface:
+			inventory_interface.set_player_inventory_data(player.inventory_data)
