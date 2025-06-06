@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8iujqrsyp4yb"
-path="res://.godot/imported/classroom.png-6108223f5947d25e2154c31f06a48988.ctex"
+uid="uid://dn5qycidakfrm"
+path="res://.godot/imported/soldering.png-68265bd020b0003e3f9bfb8f26a6b81f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Places/classroom.png"
-dest_files=["res://.godot/imported/classroom.png-6108223f5947d25e2154c31f06a48988.ctex"]
+source_file="res://Assets/Places/soldering.png"
+dest_files=["res://.godot/imported/soldering.png-68265bd020b0003e3f9bfb8f26a6b81f.ctex"]
 
 [params]
 

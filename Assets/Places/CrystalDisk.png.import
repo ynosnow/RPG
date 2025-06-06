@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8iujqrsyp4yb"
-path="res://.godot/imported/classroom.png-6108223f5947d25e2154c31f06a48988.ctex"
+uid="uid://cht2ch27xgceu"
+path="res://.godot/imported/CrystalDisk.png-bc04e7189f423bddd90667d36a343333.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Places/classroom.png"
-dest_files=["res://.godot/imported/classroom.png-6108223f5947d25e2154c31f06a48988.ctex"]
+source_file="res://Assets/Places/CrystalDisk.png"
+dest_files=["res://.godot/imported/CrystalDisk.png-bc04e7189f423bddd90667d36a343333.ctex"]
 
 [params]
 

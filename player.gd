@@ -5,7 +5,7 @@ extends CharacterBody2D
 var current_hp: int = max_hp
 var can_move = true
 
-const speed = 100.0
+var speed = 100.0
 
 func apply_damage(amount: int) -> void:
 	current_hp = max(0, current_hp - amount)
@@ -18,6 +18,16 @@ func _physics_process(_delta: float) -> void:
 		return
 	movement()
 	position = position.round()
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Run"):
+		speed = 250
+	if event.is_action_released("Run"):
+		speed = 100
+	if event.is_action_pressed("debug_mode"):
+		speed = 1000
+	if event.is_action_released("debug_mode"):
+		speed = 100
 
 func movement():
 	velocity = Input.get_vector("left", "right", "up", "down") * speed

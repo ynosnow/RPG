@@ -22,7 +22,7 @@ func _ready() -> void:
 		#tween.tween_property(%MenuMusic, "volume_db", 0, 7.0)  
 	#else:
 		#%MenuMusic.stop()
-	Global.location = "Overworld"
+	
 	call_deferred("_init_inventory")
 	if Global.hide_menu_on_start:
 		Global.hide_menu_on_start = false  
@@ -30,7 +30,12 @@ func _ready() -> void:
 		if menu:
 			menu.visible = false
 		await get_tree().process_frame 
-		SaveManager._load()
+		if Global.changed_from_school and Global.location != "Overworld":
+			SaveManager._load_everything_but_position()
+			player.position = Vector2(10,0)
+		else:
+			SaveManager._load()
+	Global.location = "Overworld"
 	interact_button.visible = false
 	door_effect.visible = false
 	
@@ -40,6 +45,7 @@ func _process(delta: float) -> void:
 		%Level.visible = true
 	if TransitionManager.is_transitioning == true:
 		$"UI".visible = false
+		SaveManager._save()
 func _input(event):
 	if event.is_action_pressed("toggle_inventory"):
 		if inventory_ui:
@@ -56,6 +62,10 @@ func _input(event):
 	if event.is_action_pressed("toggle_map"):
 			SaveManager._save()
 			get_tree().change_scene_to_file("res://Map.tscn")
+	
+	if event.is_action_pressed("Quest"):
+		SaveManager._save()
+		get_tree().change_scene_to_file("res://Quest.tscn")
 
 func _init_inventory():
 	if inventory_interface and player:
@@ -107,9 +117,8 @@ func update_level_bar():
 	%LevelingBar.value = Global.xp
 	%Level.text = "Level " + str(Global.level)
 
-		
-
 
 func _on_school_collision_body_entered(body: Node2D) -> void:
+	Global.changed_from_game = true
 	SaveManager._save()
 	await get_tree().change_scene_to_file("res://Assets/School.tscn")

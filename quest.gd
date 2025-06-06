@@ -18,3 +18,20 @@ func _on_exit_pressed() -> void:
 		get_tree().change_scene_to_file("res://game.tscn")
 	elif Global.location == "School":
 		get_tree().change_scene_to_file("res://Assets/School.tscn")
+	elif Global.location == "chinese_shop":
+		get_tree().change_scene_to_file("res://chinese_shop.tscn")
+	elif Global.location == "chinese_shop_underground":
+		get_tree().change_scene_to_file("res://chinese_shop.tscn")
+		
+		
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Quest"):
+		if Global.location == "Overworld":
+			Global.hide_menu_on_start = true
+			get_tree().change_scene_to_file("res://game.tscn")
+		elif Global.location == "School":
+			get_tree().change_scene_to_file("res://Assets/School.tscn")
+		elif Global.location == "chinese_shop":
+			get_tree().change_scene_to_file("res://chinese_shop.tscn")
+		elif Global.location == "chinese_shop_underground":
+			get_tree().change_scene_to_file("res://chinese_shop.tscn")

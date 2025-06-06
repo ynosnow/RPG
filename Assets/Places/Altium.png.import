@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8iujqrsyp4yb"
-path="res://.godot/imported/classroom.png-6108223f5947d25e2154c31f06a48988.ctex"
+uid="uid://b2ebb16dsvgux"
+path="res://.godot/imported/Altium.png-7881b95e3e246f6445f14ed455b0a93c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Places/classroom.png"
-dest_files=["res://.godot/imported/classroom.png-6108223f5947d25e2154c31f06a48988.ctex"]
+source_file="res://Assets/Places/Altium.png"
+dest_files=["res://.godot/imported/Altium.png-7881b95e3e246f6445f14ed455b0a93c.ctex"]
 
 [params]
 

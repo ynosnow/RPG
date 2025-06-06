@@ -1,0 +1,168 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv30v6v0omccx"]
+
+[ext_resource type="Script" uid="uid://dgrpo7yyu41cf" path="res://soldering.gd" id="1_lb42f"]
+[ext_resource type="Texture2D" uid="uid://dn5qycidakfrm" path="res://Assets/Places/soldering.png" id="1_xqs48"]
+[ext_resource type="Texture2D" uid="uid://bejdkknq7pgjn" path="res://Assets/Places/soldering2.png" id="3_s4kb1"]
+[ext_resource type="Texture2D" uid="uid://c756iquu3ovit" path="res://Assets/Places/soldering3.png" id="4_ac5y4"]
+
+[node name="soldering" type="Node2D"]
+script = ExtResource("1_lb42f")
+
+[node name="Soldering" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("1_xqs48")
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 418.0
+offset_top = 114.0
+offset_right = 481.0
+offset_bottom = 131.0
+
+[node name="Button2" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 481.0
+offset_top = 114.0
+offset_right = 544.0
+offset_bottom = 131.0
+
+[node name="Button3" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 481.0
+offset_top = 131.0
+offset_right = 544.0
+offset_bottom = 148.0
+
+[node name="Button4" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 418.0
+offset_top = 131.0
+offset_right = 481.0
+offset_bottom = 148.0
+
+[node name="Button5" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 481.0
+offset_top = 148.0
+offset_right = 544.0
+offset_bottom = 165.0
+
+[node name="Button6" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 418.0
+offset_top = 148.0
+offset_right = 481.0
+offset_bottom = 165.0
+
+[node name="Button7" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 418.0
+offset_top = 165.0
+offset_right = 481.0
+offset_bottom = 182.0
+
+[node name="Button8" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 481.0
+offset_top = 165.0
+offset_right = 544.0
+offset_bottom = 182.0
+
+[node name="Button9" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 418.0
+offset_top = 182.0
+offset_right = 481.0
+offset_bottom = 195.0
+
+[node name="Button10" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 481.0
+offset_top = 182.0
+offset_right = 544.0
+offset_bottom = 195.0
+
+[node name="Button11" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 418.0
+offset_top = 195.0
+offset_right = 481.0
+offset_bottom = 208.0
+
+[node name="Button12" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 481.0
+offset_top = 195.0
+offset_right = 544.0
+offset_bottom = 208.0
+
+[node name="Soldering2" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(320, 180)
+texture = ExtResource("3_s4kb1")
+
+[node name="Button13" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 263.0
+offset_top = 148.0
+offset_right = 300.0
+offset_bottom = 183.0
+
+[node name="Button14" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 174.0
+offset_top = 148.0
+offset_right = 211.0
+offset_bottom = 183.0
+
+[node name="Button15" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 263.0
+offset_top = 207.0
+offset_right = 300.0
+offset_bottom = 242.0
+
+[node name="Button16" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 174.0
+offset_top = 207.0
+offset_right = 211.0
+offset_bottom = 242.0
+
+[node name="Soldering3" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(320, 180)
+texture = ExtResource("4_ac5y4")
+
+[node name="Button17" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 586.0
+offset_top = 329.0
+offset_right = 640.0
+offset_bottom = 360.0
+text = "Finish"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="Button10" to="." method="_on_button_10_pressed"]
+[connection signal="pressed" from="Button11" to="." method="_on_button_11_pressed"]
+[connection signal="pressed" from="Button12" to="." method="_on_button_12_pressed"]
+[connection signal="pressed" from="Button13" to="." method="_on_button_13_pressed"]
+[connection signal="pressed" from="Button14" to="." method="_on_button_14_pressed"]
+[connection signal="pressed" from="Button15" to="." method="_on_button_15_pressed"]
+[connection signal="pressed" from="Button16" to="." method="_on_button_16_pressed"]
+[connection signal="pressed" from="Button17" to="." method="_on_button_17_pressed"]

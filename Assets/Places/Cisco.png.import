@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8iujqrsyp4yb"
-path="res://.godot/imported/classroom.png-6108223f5947d25e2154c31f06a48988.ctex"
+uid="uid://uw5h8pq2yxe0"
+path="res://.godot/imported/Cisco.png-91d0c97b33bc5a180ea8bc31ab74f9a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Places/classroom.png"
-dest_files=["res://.godot/imported/classroom.png-6108223f5947d25e2154c31f06a48988.ctex"]
+source_file="res://Assets/Places/Cisco.png"
+dest_files=["res://.godot/imported/Cisco.png-91d0c97b33bc5a180ea8bc31ab74f9a5.ctex"]
 
 [params]
 

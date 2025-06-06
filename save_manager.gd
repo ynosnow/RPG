@@ -34,6 +34,23 @@ func _load():
 				if inventory_interface:
 					inventory_interface.set_player_inventory_data(player.inventory_data)
 
+func _load_everything_but_position():
+	if FileAccess.file_exists(save_location):
+		SaveFileData = ResourceLoader.load(save_location).duplicate(true)
+		var player = get_tree().current_scene.get_node("Player")
+		if player:
+			await get_tree().create_timer(0.0).timeout
+			Global.xp = SaveFileData.xp
+			Global.xp_to_next_level = SaveFileData.xp_to_next_level
+			Global.level = SaveFileData.level
+			player.current_hp = SaveFileData.player_current_hp
+			player.max_hp = SaveFileData.player_max_hp
+			if SaveFileData.inventory:
+				player.inventory_data = SaveFileData.inventory.duplicate(true)
+				var inventory_interface = get_tree().current_scene.get_node("UI/InventoryInterface")
+				if inventory_interface:
+					inventory_interface.set_player_inventory_data(player.inventory_data)
+
 func _save_hp_only():
 	var stats = Global.player_stats
 	if stats:

@@ -33,7 +33,7 @@ layout_mode = 0
 offset_right = 638.0
 offset_bottom = 70.0
 theme_override_fonts/font = ExtResource("2_fq4jk")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -48,6 +48,7 @@ offset_bottom = 210.0
 layout_mode = 0
 offset_right = 638.0
 offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
 
 [node name="Panel3" type="Panel" parent="."]
 custom_minimum_size = Vector2(640, 50)
@@ -59,7 +60,8 @@ offset_bottom = 290.0
 [node name="Label" type="Label" parent="Panel3"]
 layout_mode = 0
 offset_right = 638.0
-offset_bottom = 54.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 20
 
 [node name="Exit" type="Button" parent="."]
 layout_mode = 1

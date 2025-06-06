@@ -36,6 +36,12 @@ func _input(event):
 	if event.is_action_pressed("Interact"):
 		if $"Area2D2/Button".visible:
 			_on_button_pressed()
+			
+	if event.is_action_pressed("Quest"):
+		SaveManager._save()
+		get_tree().change_scene_to_file("res://Quest.tscn")
+		
+		
 func _init_inventory():
 	if inventory_interface and player:
 		inventory_interface.set_player_inventory_data(player.inventory_data)

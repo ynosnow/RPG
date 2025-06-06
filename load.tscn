@@ -35,5 +35,5 @@ theme_override_font_sizes/font_size = 34
 text = "Save State 1"
 script = ExtResource("1_edu2m")
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/Save_State_Btn" to="ColorRect/VBoxContainer/Save_State_Btn" method="_on_save_state_btn_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Save_State_Btn" to="ColorRect/VBoxContainer/Save_State_Btn" method="_on_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Save_State_Btn" to="ColorRect/VBoxContainer/Save_State_Btn" method="_on_save_state_btn_pressed"]

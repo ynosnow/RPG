@@ -1,0 +1,210 @@
+[gd_scene load_steps=20 format=3 uid="uid://cqc2w0xwg8do4"]
+
+[ext_resource type="Texture2D" uid="uid://cu8w1fg0myrf3" path="res://Assets/Places/Browser.png" id="1_oog1n"]
+[ext_resource type="Script" uid="uid://c6e2efiuheba7" path="res://programming.gd" id="1_ot6ps"]
+[ext_resource type="Texture2D" uid="uid://c2qhycxc74fdt" path="res://Assets/Places/background.png" id="2_bwqpj"]
+[ext_resource type="Texture2D" uid="uid://du0d3oitqhgmd" path="res://Assets/Places/Home.png" id="3_uo8u6"]
+[ext_resource type="Texture2D" uid="uid://uw5h8pq2yxe0" path="res://Assets/Places/Cisco.png" id="5_0qiay"]
+[ext_resource type="Texture2D" uid="uid://dv6wdxwwe864g" path="res://Assets/Places/Altium_22_loading.png" id="6_8pdxp"]
+[ext_resource type="Texture2D" uid="uid://b2ebb16dsvgux" path="res://Assets/Places/Altium.png" id="7_q4f4s"]
+[ext_resource type="Texture2D" uid="uid://bh56wdbk56hvn" path="res://Assets/Places/Discord.png" id="8_8pdxp"]
+[ext_resource type="Texture2D" uid="uid://cht2ch27xgceu" path="res://Assets/Places/CrystalDisk.png" id="9_jsb1r"]
+[ext_resource type="Texture2D" uid="uid://bdfv8o5uu76q8" path="res://Assets/Places/ArduinoIDE.png" id="10_5ns4e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4f4s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo8u6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dih7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsb1r"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nvmc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qiay"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pdxp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwqpj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ot6ps"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Programming" type="Node2D"]
+script = ExtResource("1_ot6ps")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(0.334, 0.334)
+texture = ExtResource("2_bwqpj")
+
+[node name="Home" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(320, 180)
+scale = Vector2(0.334, 0.334)
+texture = ExtResource("3_uo8u6")
+
+[node name="BrowserBtn" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 33.0
+offset_top = 344.0
+offset_right = 47.0
+offset_bottom = 361.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_q4f4s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uo8u6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3dih7")
+
+[node name="Explorer" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 17.0
+offset_top = 344.0
+offset_right = 33.0
+offset_bottom = 361.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_jsb1r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6nvmc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0qiay")
+
+[node name="HomeBtn" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = -2.0
+offset_top = 344.0
+offset_right = 17.0
+offset_bottom = 361.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_8pdxp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bwqpj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ot6ps")
+
+[node name="Altium22" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 23.0
+offset_top = 159.0
+offset_right = 113.0
+offset_bottom = 171.0
+
+[node name="Altium24" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 23.0
+offset_top = 172.0
+offset_right = 113.0
+offset_bottom = 184.0
+
+[node name="ArduinoIdeBtn" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 23.0
+offset_top = 186.0
+offset_right = 113.0
+offset_bottom = 198.0
+
+[node name="CiscoBtn" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 23.0
+offset_top = 213.0
+offset_right = 113.0
+offset_bottom = 225.0
+
+[node name="CrystalDiskBtn" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 23.0
+offset_top = 226.0
+offset_right = 113.0
+offset_bottom = 238.0
+
+[node name="DiscordBtn" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 22.0
+offset_top = 253.0
+offset_right = 113.0
+offset_bottom = 264.0
+
+[node name="shutDown" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 184.0
+offset_top = 320.0
+offset_right = 203.0
+offset_bottom = 338.0
+
+[node name="Browser" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(321, 180)
+scale = Vector2(0.251, 0.251)
+texture = ExtResource("1_oog1n")
+
+[node name="Browser_close" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 610.0
+offset_top = -1.0
+offset_right = 641.0
+offset_bottom = 10.0
+
+[node name="Search" type="Button" parent="."]
+visible = false
+offset_left = 167.0
+offset_top = 5.0
+offset_right = 474.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 8
+text = "Klick to search"
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 155.0
+offset_top = 106.0
+offset_right = 211.0
+offset_bottom = 157.0
+
+[node name="Cisco" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(0.334, 0.334)
+texture = ExtResource("5_0qiay")
+
+[node name="Altium22Loading" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(0.334, 0.334)
+texture = ExtResource("6_8pdxp")
+
+[node name="Altium" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(0.334, 0.334)
+texture = ExtResource("7_q4f4s")
+
+[node name="Discord" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(0.334, 0.334)
+texture = ExtResource("8_8pdxp")
+
+[node name="CrystalDisk" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(0.334, 0.334)
+texture = ExtResource("9_jsb1r")
+
+[node name="ArduinoIde" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(0.334, 0.334)
+texture = ExtResource("10_5ns4e")
+
+[connection signal="pressed" from="BrowserBtn" to="." method="_on_browser_btn_pressed"]
+[connection signal="pressed" from="HomeBtn" to="." method="_on_home_btn_pressed"]
+[connection signal="pressed" from="Browser_close" to="." method="_on_browser_close_pressed"]

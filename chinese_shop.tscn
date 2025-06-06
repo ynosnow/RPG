@@ -128,16 +128,14 @@ rotation = 6.28319
 scale = Vector2(1, 1.06766)
 texture = ExtResource("3_ajs2m")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-155, -135)
-polygon = PackedVector2Array(176, 175, 320, 176, 317, 160, 175, 160)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(5, 35)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-335, -170)
-polygon = PackedVector2Array(176, 175, 320, 176, 317, 160, 175, 160)
+polygon = PackedVector2Array(176, 175, 320, 176, 316, 155, 176, 156)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-333, -326)
@@ -149,17 +147,19 @@ polygon = PackedVector2Array(180, 148, 181, 292, 198, 292, 200, 147)
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-29, -291)
-polygon = PackedVector2Array(170, 136, 174, 281, 187, 278, 186, 138)
+polygon = PackedVector2Array(170, 136, 173, 281, 189, 297, 186, 138)
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-178, -192)
 polygon = PackedVector2Array(193, 184, 197, 184, 197, 152, 192, 152)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D"]
-
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-248, -153)
 polygon = PackedVector2Array(176, 175, 320, 176, 317, 160, 175, 160)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-160, -170)
+polygon = PackedVector2Array(176, 175, 320, 176, 309, 155, 178, 153)
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(3, 39)
@@ -302,6 +302,22 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Downstairs"]
 position = Vector2(-13, -5)
 shape = SubResource("RectangleShape2D_t5d5q")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(5, 35)
+
+[node name="Wall1" type="CollisionPolygon2D" parent="StaticBody2D3"]
+position = Vector2(-447, -425)
+scale = Vector2(1, 1.98438)
+polygon = PackedVector2Array(178, 169.827, 299, 170.331, 298, 159.748, 175, 160)
+
+[node name="Wall3" type="CollisionPolygon2D" parent="StaticBody2D3"]
+position = Vector2(-222, -365)
+polygon = PackedVector2Array(190, 191, 266, 192, 295, 161, 169, 162)
+
+[node name="Wall2" type="CollisionPolygon2D" parent="StaticBody2D3"]
+position = Vector2(-21, -274)
+polygon = PackedVector2Array(175, 180, 296, 181, 295, 161, 175, 160)
 
 [connection signal="body_entered" from="Area2D2" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="." method="_on_body_exited"]

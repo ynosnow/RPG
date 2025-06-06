@@ -6,19 +6,33 @@ extends Node2D
 @onready var inventory_ui = $UI/InventoryInterface
 
 func _ready() -> void:
-	Global.location = "School"
+	
 	player.inventory_data = Global.inventory_data
 	player.inventory_data.ensure_slot_count(12)
 	call_deferred("_init_inventory")
 	
-	SaveManager._load()
+	if Global.changed_from_game == true:
+		SaveManager._load_everything_but_position()
+		player.position = Vector2(240, -521)
+		Global.changed_from_school = false
+	elif Global.changed_from_solder == true and Global.location == "School":
+		SaveManager._load_everything_but_position()
+		player.position = Vector2(-1919.0, -530.0)
+	else:
+		SaveManager._load()
+	Global.location = "School"
 
 func _process(delta: float) -> void:
-	pass
-
-
+	if Global.changed_from_solder == true:
+		var solder = $solder
+		if solder:
+			solder.collision_layer = 1
+			solder.collision_mask = 1
+			Global.changed_from_solder = false  
+	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == player:
+		Global.changed_from_school = true
 		Global.hide_menu_on_start = true
 		get_tree().change_scene_to_file("res://game.tscn")
 
@@ -38,6 +52,10 @@ func _input(event):
 	if event.is_action_pressed("toggle_map"):
 		SaveManager._save()
 		get_tree().change_scene_to_file("res://Map.tscn")
+	
+	if event.is_action_pressed("Quest"):
+		SaveManager._save()
+		get_tree().change_scene_to_file("res://Quest.tscn")
 
 func _init_inventory():
 	if inventory_interface and player:
@@ -51,4 +69,8 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 		if slot_data and slot_data.item_data:
 			print("Used item: %s" % slot_data.item_data.name)
 	inventory_interface.update_grabbed_slot()
-	
+
+func _on_solder_body_entered(body: Node2D) -> void:
+	if body == player:
+		SaveManager._save()
+		get_tree().change_scene_to_file("res://soldering.tscn")

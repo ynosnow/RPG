@@ -7,6 +7,9 @@ var cash: int = 0 #zum erhöhen Global.cash += 10000
 var location: String = ""
 var if_keys_picked_up = false
 var turn_text_off = false
+var changed_from_game = false
+var changed_from_school = false
+var changed_from_solder = false
 
 var player_stats = {
 	"max_hp": 100,
