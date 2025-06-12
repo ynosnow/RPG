@@ -33,6 +33,9 @@ func _ready() -> void:
 		if Global.changed_from_school and Global.location != "Overworld":
 			SaveManager._load_everything_but_position()
 			player.position = Vector2(10,0)
+		elif Global.changed_from_chinese and Global.location != "Overworld":
+			SaveManager._load_everything_but_position()
+			player.position = Vector2(760,250)
 		else:
 			SaveManager._load()
 	Global.location = "Overworld"
@@ -118,7 +121,29 @@ func update_level_bar():
 	%Level.text = "Level " + str(Global.level)
 
 
-func _on_school_collision_body_entered(body: Node2D) -> void:
+func _on_school_collision_body_entered(body: Node2D) -> void:				
 	Global.changed_from_game = true
 	SaveManager._save()
 	await get_tree().change_scene_to_file("res://Assets/School.tscn")
+
+
+func _on_gopnik_body_entered(body: Node2D) -> void:
+	if body == player:
+		%gopnikBtn.visible = true
+
+func _on_gopnik_body_exited(body: Node2D) -> void:
+	if body == player:
+		%gopnikBtn.visible = false
+
+func _on_stand_hot_dog_body_exited(body: Node2D) -> void:
+	if body == player:
+		%HotDogBtn.visible = false
+
+func _on_stand_hot_dog_body_entered(body: Node2D) -> void:
+	if body == player:
+		%HotDogBtn.visible = true
+
+
+func _on_casino_body_entered(body: Node2D) -> void:
+	SaveManager._save()
+	await get_tree().change_scene_to_file("res://Assets/casino.tscn")

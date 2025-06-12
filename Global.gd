@@ -1,5 +1,7 @@
 extends Node
 
+var level_school: int = 0
+
 var level: int = 1
 var xp: int = 0
 var xp_to_next_level: int = 100
@@ -10,6 +12,7 @@ var turn_text_off = false
 var changed_from_game = false
 var changed_from_school = false
 var changed_from_solder = false
+var changed_from_chinese = false
 
 var player_stats = {
 	"max_hp": 100,

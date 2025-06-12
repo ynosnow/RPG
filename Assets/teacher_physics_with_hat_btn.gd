@@ -17,3 +17,5 @@ func _on_pressed() -> void:
 		3: 
 			%Panel.visible = false
 			Talk_Stage = 0
+			if Global.level_school == 0:
+				Global.level_school = 1

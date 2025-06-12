@@ -58,11 +58,20 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 func _process(delta: float) -> void:
 	if Global.chef_defeated == true:
 		$"Area2D2/Chef".visible = false
+		%DialogLabel.visible = false
+		%Panel.visible = false
+		$"StaticBody2D3".position = Vector2(500,35)
+	else:
+		$"StaticBody2D3".position = Vector2(5,35)
 	
 
 func _on_body_entered(body: Node2D) -> void:
+	if talkstage == 0:
+		$"Area2D2/CanvasLayer2/Panel".visible = true
+		$"Area2D2/CanvasLayer2/Panel/DialogLabel".text = "We are closed, dont come closer!"
+		talkstage+= 1
 	if Global.chef_defeated == false:
-		$"Area2D2/Button".visible = true
+		$"Area2D2/Button".visible = false
 
 func _on_body_exited(body: Node2D) -> void:
 	if Global.chef_defeated == false:
@@ -70,11 +79,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _on_button_pressed() -> void:
-	if talkstage == 0:
-		$"Area2D2/CanvasLayer2/Panel".visible = true
-		$"Area2D2/CanvasLayer2/Panel/DialogLabel".text = "WHAT ARE YOU DOING HERE!"
-		talkstage += 1
-	elif talkstage == 1:
+	if talkstage == 1:
 		$"Area2D2/CanvasLayer2/Panel/DialogLabel".text = "YOU HAVE NO CHANCE AGAINST ME"
 		talkstage += 1
 	elif talkstage == 2:
@@ -142,5 +147,14 @@ func _on_exit_body_entered(body: Node2D) -> void:
 	if body == player:
 		player.position = Vector2(758.0,230.0)
 		SaveManager._save_position_only()
+		Global.changed_from_chinese = true
 		Global.hide_menu_on_start = true
 		await get_tree().change_scene_to_file("res://game.tscn")
+
+
+func _on_fight_body_entered(body: Node2D) -> void:
+	if body == player and Global.chef_defeated != true:
+		start_battle_transition()
+		$"Area2D2/CanvasLayer2/Panel".visible = false
+		$"Area2D2/CanvasLayer2/Panel/DialogLabel".visible = false
+		$"UI/Menu_Btn".visible = false

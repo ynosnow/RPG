@@ -80,5 +80,6 @@ func _on_button_16_pressed() -> void:
 	counter += 1
 
 func _on_button_17_pressed() -> void:
+	Global.level_school = 3
 	Global.changed_from_solder = true
 	await get_tree().change_scene_to_file("res://Assets/School.tscn")

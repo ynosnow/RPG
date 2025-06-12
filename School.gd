@@ -31,10 +31,13 @@ func _process(delta: float) -> void:
 			Global.changed_from_solder = false  
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body == player:
-		Global.changed_from_school = true
-		Global.hide_menu_on_start = true
-		get_tree().change_scene_to_file("res://game.tscn")
+	if Global.level_school == 5:
+		if body == player:
+			Global.changed_from_school = true
+			Global.hide_menu_on_start = true
+			get_tree().change_scene_to_file("res://game.tscn")
+	else:
+		pass
 
 func _input(event):
 	if event.is_action_pressed("toggle_inventory"):
@@ -71,6 +74,15 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 	inventory_interface.update_grabbed_slot()
 
 func _on_solder_body_entered(body: Node2D) -> void:
-	if body == player:
-		SaveManager._save()
-		get_tree().change_scene_to_file("res://soldering.tscn")
+	if Global.level_school == 2:
+		if body == player:
+			SaveManager._save()
+			get_tree().change_scene_to_file("res://soldering.tscn")
+
+func _on_programming_body_entered(body: Node2D) -> void:
+	if Global.level_school == 3:
+		if body == player:
+			SaveManager._save()
+			get_tree().change_scene_to_file("res://Browser.tscn")
+	else:
+		pass
