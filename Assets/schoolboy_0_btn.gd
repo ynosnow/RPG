@@ -27,6 +27,9 @@ func _on_pressed() -> void:
 				%DialogLabel.text = "at Working Bench on the left "
 				Talk_Stage += 1
 			4: 
+				%DialogLabel.text = "after that you can come back to me"
+				Talk_Stage += 1
+			5: 
 				%Panel.visible = false
 				Talk_Stage = 0
 				if Global.level_school == 1:
@@ -38,6 +41,9 @@ func _on_pressed() -> void:
 				%DialogLabel.text = "Now you have to program it in Arduino IDE"
 				Talk_Stage += 1
 			1: 
+				%DialogLabel.text = "after that you can inform me"
+				Talk_Stage += 1
+			2: 
 				%Panel.visible = false
 				Talk_Stage = 0
 	else:

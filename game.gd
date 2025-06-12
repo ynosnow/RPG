@@ -145,5 +145,6 @@ func _on_stand_hot_dog_body_entered(body: Node2D) -> void:
 
 
 func _on_casino_body_entered(body: Node2D) -> void:
-	SaveManager._save()
-	await get_tree().change_scene_to_file("res://Assets/casino.tscn")
+	if body == player:
+		SaveManager._save()
+		await get_tree().change_scene_to_file("res://casino.tscn")
