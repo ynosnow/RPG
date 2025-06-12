@@ -5,6 +5,11 @@ var text_finished := false
 @export var slot_data: SlotData
 
 func _ready() -> void:
+	if Global.money_collected_from_chinese:
+		%Talk_Btn.visible = false
+		%Panel.visible = false
+		return 
+		
 	%Talk_Btn.visible = false
 	%Panel.visible = false
 
@@ -28,9 +33,6 @@ func _on_pressed() -> void:
 	match Global.npc:
 		"Heinrich":
 			handle_heinrich_dialog()
-		"ChineseChef":
-			%Panel.visible = true
-			%DialogLabel.text = "What are you doing here"
 
 func handle_heinrich_dialog() -> void:
 	%Panel.visible = true
@@ -82,20 +84,8 @@ func handle_heinrich_dialog() -> void:
 			15:
 				%DialogLabel.text = "Be careful... he might notice something's off"
 			16:
-				if Global.cash >= 500000:
-					%DialogLabel.text = "So you got the money"
-					talk_stage = 17
-				else:
-					%Panel.visible = false
-					%Talk_Btn.visible = false
-					text_finished = true
-					return
-			17:
-				%DialogLabel.text = "Find out the rest yourself"
-				talk_stage = 18
-				return
-			18:
 				end_heinrich_dialog()
+				hide_dialog()
 				return
 		talk_stage += 1
 	else:

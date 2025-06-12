@@ -1,24 +1,87 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhs7ogiyejce1"]
+[gd_scene load_steps=3 format=3 uid="uid://bhs7ogiyejce1"]
 
+[ext_resource type="Script" uid="uid://cfmscoou3thx6" path="res://gambling.gd" id="1_8xtat"]
 [ext_resource type="Texture2D" uid="uid://b3ecouxyoglkn" path="res://Assets/Places/roulette.png" id="1_j4mqd"]
 
 [node name="gambling" type="Node2D"]
+script = ExtResource("1_8xtat")
 
 [node name="Roulette" type="Sprite2D" parent="."]
 position = Vector2(180, 180)
 scale = Vector2(7, 7)
 texture = ExtResource("1_j4mqd")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 460.0
-offset_top = 258.0
-offset_right = 495.0
-offset_bottom = 289.0
-text = "Bet"
+[node name="Red" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 402.0
+offset_top = 256.0
+offset_right = 440.0
+offset_bottom = 287.0
+text = "Red
+"
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 398.0
-offset_top = 165.0
-offset_right = 587.0
-offset_bottom = 232.0
-placeholder_text = "200000"
+[node name="Black" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 449.0
+offset_top = 257.0
+offset_right = 500.0
+offset_bottom = 288.0
+text = "Black"
+
+[node name="Green" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 510.0
+offset_top = 258.0
+offset_right = 566.0
+offset_bottom = 289.0
+text = "Green"
+
+[node name="SpinBox" type="SpinBox" parent="."]
+unique_name_in_owner = true
+offset_left = 403.0
+offset_top = 212.0
+offset_right = 570.0
+offset_bottom = 243.0
+max_value = 1e+06
+
+[node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 216.0
+offset_top = 316.0
+offset_right = 636.0
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogLabel" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 601.0
+offset_top = 1.0
+offset_right = 638.0
+offset_bottom = 32.0
+text = "Exit"
+
+[connection signal="pressed" from="Red" to="." method="_on_red_pressed"]
+[connection signal="pressed" from="Black" to="." method="_on_black_pressed"]
+[connection signal="pressed" from="Green" to="." method="_on_green_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

@@ -63,6 +63,13 @@ func _process(delta: float) -> void:
 		$"StaticBody2D3".position = Vector2(500,35)
 	else:
 		$"StaticBody2D3".position = Vector2(5,35)
+	if Global.money_collected_from_chinese == true:
+		$"Door2".visible = false 
+		$"Door".visible = true
+		$"StaticBody2D5".position = Vector2(500,35)
+		$"StaticBody2D4".position = Vector2(5,35)
+	else:
+		$"StaticBody2D4".position = Vector2(500,35)
 	
 
 func _on_body_entered(body: Node2D) -> void:

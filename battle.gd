@@ -21,6 +21,9 @@ var is_player_turn = true
 
 
 func _ready() -> void:
+	if Global.changed_from_chinese:
+		queue_free()  
+		return  
 	if Global.opponent == "Heinrich":
 		$"VBoxContainer/Heinrich".visible = true
 		display_text("Heinrich has attacked you!")

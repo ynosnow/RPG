@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://biismmld4b6lj"]
+[gd_scene load_steps=58 format=4 uid="uid://biismmld4b6lj"]
 
 [ext_resource type="Script" uid="uid://bf38ycfoq1bnp" path="res://game.gd" id="1_iotsf"]
 [ext_resource type="TileSet" uid="uid://bbu26xfg0oi46" path="res://Assets/tilemap.tres" id="2_80cx4"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://bvbjdy0f6jors" path="res://Assets/tree_park.png" id="35_aa0lp"]
 [ext_resource type="Texture2D" uid="uid://bnidrqbedt85t" path="res://Assets/Casino.png" id="38_4v2jo"]
 [ext_resource type="Texture2D" uid="uid://b51uwnnoc2ejp" path="res://Assets/Tent.png" id="39_l1i01"]
+[ext_resource type="Texture2D" uid="uid://bi0iwwrwercdr" path="res://Assets/Important.png" id="40_r62pu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfvwf"]
 texture = ExtResource("20_x5p1p")
@@ -97,7 +98,7 @@ size = Vector2(43, 31.5)
 size = Vector2(94, 73)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1i01"]
-size = Vector2(52, 3)
+size = Vector2(52, 62)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfvwf"]
 bg_color = Color(0, 0, 0, 1)
@@ -241,6 +242,8 @@ text = "Interact"
 script = ExtResource("11_iu0sx")
 
 [node name="Casino" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Casino" type="Sprite2D" parent="Casino"]
 position = Vector2(559, -504)
@@ -248,7 +251,7 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("38_4v2jo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Casino"]
-position = Vector2(558, -494.5)
+position = Vector2(558, -465)
 shape = SubResource("RectangleShape2D_l1i01")
 
 [node name="Bench" type="Sprite2D" parent="."]
@@ -322,7 +325,6 @@ layout_mode = 0
 visible = false
 
 [node name="Menu" parent="UI" instance=ExtResource("17_e8heu")]
-visible = false
 
 [node name="LevelingBar" type="ProgressBar" parent="UI"]
 unique_name_in_owner = true
@@ -445,10 +447,10 @@ slot_data = SubResource("Resource_aa0lp")
 
 [node name="Interact_Door" type="Button" parent="."]
 visible = false
-offset_left = 720.0
-offset_top = 60.0
-offset_right = 789.0
-offset_bottom = 91.0
+offset_left = 727.0
+offset_top = 78.0
+offset_right = 796.0
+offset_bottom = 109.0
 text = "Interact"
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
@@ -483,7 +485,13 @@ texture = ExtResource("35_aa0lp")
 position = Vector2(852, 22)
 texture = ExtResource("35_aa0lp")
 
+[node name="Important" type="Sprite2D" parent="."]
+position = Vector2(264, 63)
+scale = Vector2(3, 3)
+texture = ExtResource("40_r62pu")
+
 [connection signal="body_entered" from="ShopChinese/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="ShopChinese/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="ShopChineseTop/chinese_entrance" to="." method="_on_chinese_entrance_body_entered"]
 [connection signal="body_exited" from="ShopChineseTop/chinese_entrance" to="." method="_on_chinese_entrance_body_exited"]
 [connection signal="body_entered" from="StandHotDog" to="." method="_on_stand_hot_dog_body_entered"]

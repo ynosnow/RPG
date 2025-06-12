@@ -6,7 +6,6 @@ extends Node2D
 @onready var inventory_ui = $UI/InventoryInterface
 
 func _ready() -> void:
-	
 	player.inventory_data = Global.inventory_data
 	player.inventory_data.ensure_slot_count(12)
 	call_deferred("_init_inventory")
@@ -29,6 +28,13 @@ func _process(delta: float) -> void:
 			solder.collision_layer = 1
 			solder.collision_mask = 1
 			Global.changed_from_solder = false  
+	if Global.physics_teacher_important == true:
+		$"Important".visible = false
+	if Global.level_school == 4:
+		$"Important2".visible = true
+		Global.cyan_boy_important = true
+	if Global.cyan_boy_important == false:
+		$"Important2".visible = false
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if Global.level_school == 5:

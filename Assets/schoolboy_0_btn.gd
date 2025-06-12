@@ -41,14 +41,15 @@ func _on_pressed() -> void:
 				%Panel.visible = false
 				Talk_Stage = 0
 	else:
+		Global.level_school = 5
 		match Talk_Stage:
 			0: 
+				Global.cyan_boy_important = false
 				%DialogLabel.text = "thanks for helping out"
 				Talk_Stage += 1
 			1: 
 				%DialogLabel.text = "I will now go to Mr. physics Teacher"
 				Talk_Stage += 1
 			2: 
-				Global.level_school = 5
 				%Panel.visible = false
 				Talk_Stage = 0

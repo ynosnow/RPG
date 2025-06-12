@@ -89,6 +89,7 @@ func _play_safeopened_sound():
 
 func _on_collect_money_pressed() -> void:
 	Global.cash += 500000
+	Global.money_collected_from_chinese = true
 	$"MoneyCollect".play()
 	$"Open".visible = false
 	$"OpenWithoutMoney".visible = true

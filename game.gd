@@ -33,7 +33,7 @@ func _ready() -> void:
 		if Global.changed_from_school and Global.location != "Overworld":
 			SaveManager._load_everything_but_position()
 			player.position = Vector2(10,0)
-		elif Global.changed_from_chinese and Global.location != "Overworld":
+		elif Global.money_collected_from_chinese and Global.location != "Overworld":
 			SaveManager._load_everything_but_position()
 			player.position = Vector2(760,250)
 		else:
@@ -49,12 +49,17 @@ func _process(delta: float) -> void:
 	if TransitionManager.is_transitioning == true:
 		$"UI".visible = false
 		SaveManager._save()
+	if Global.heinrich_important == true:
+		$"Important".visible = false
 func _input(event):
 	if event.is_action_pressed("toggle_inventory"):
 		if inventory_ui:
 			inventory_ui.visible = not inventory_ui.visible
 			if break_menu_ui and inventory_ui.visible:
 				break_menu_ui.visible = false
+				
+	if event.is_action_pressed("Interact") and interact_button.visible:
+		_on_interact_door_pressed()
 
 	if event.is_action_pressed("toggle_break_menu"):
 		if break_menu_ui:
@@ -91,14 +96,9 @@ func _on_interact_door_pressed() -> void:
 			print("Du hast den Schlüssel nicht!")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body == player:
+	if body == player and door_open == false:
 		player_in_range = true
 		interact_button.visible = true
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body == player:
-		player_in_range = false
-		interact_button.visible = false
 
 func has_key() -> bool:
 	var inventory = player.inventory_data
@@ -110,10 +110,7 @@ func has_key() -> bool:
 	return false
 
 
-func _on_chinese_entrance_body_exited(body: Node2D) -> void:
-	if body == player:
-		player_in_range = false
-		interact_button.visible = false
+
 		
 func update_level_bar():
 	%LevelingBar.max_value = Global.xp_to_next_level
@@ -145,5 +142,11 @@ func _on_stand_hot_dog_body_entered(body: Node2D) -> void:
 
 
 func _on_casino_body_entered(body: Node2D) -> void:
-	SaveManager._save()
-	await get_tree().change_scene_to_file("res://Assets/casino.tscn")
+	if body == player:
+		SaveManager._save()
+		get_tree().change_scene_to_file("res://casino.tscn")
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body == player:
+		interact_button.visible = false

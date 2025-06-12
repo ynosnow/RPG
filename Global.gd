@@ -13,6 +13,7 @@ var changed_from_game = false
 var changed_from_school = false
 var changed_from_solder = false
 var changed_from_chinese = false
+var money_collected_from_chinese = false
 
 var player_stats = {
 	"max_hp": 100,
@@ -29,7 +30,9 @@ var chinese_shop_entered = false
 var opponent = ""
 var chef_defeated = false
 var heinrich_dialog_finished = false
-
+var heinrich_important = false
+var physics_teacher_important = false
+var cyan_boy_important = false
 
 
 func format_cash(amount: int) -> String:

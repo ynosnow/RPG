@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1uxs6sp6pgbk" path="res://Inventory/inventory_data.gd" id="1_g5g3k"]
 [ext_resource type="Script" uid="uid://bdghgtduhj8tw" path="res://Inventory/slot_data.gd" id="2_7nm7m"]
-[ext_resource type="Resource" uid="uid://bcfbs2sus3bn0" path="res://Item/Items/apple2.tres" id="3_7nm7m"]
+[ext_resource type="Resource" uid="uid://7wimboevqlvu" path="res://Item/Items/full_key_as_item.tres" id="3_7nm7m"]
 
 [sub_resource type="Resource" id="Resource_ghyoh"]
 script = ExtResource("2_7nm7m")

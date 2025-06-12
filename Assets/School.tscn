@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dw488lne0q07o"]
+[gd_scene load_steps=27 format=4 uid="uid://dw488lne0q07o"]
 
 [ext_resource type="Script" uid="uid://crr47w1jdsmm8" path="res://School.gd" id="1_s3h8r"]
 [ext_resource type="TileSet" uid="uid://bncjfijsakmcp" path="res://Assets/Indoor_floor_tilemap.tres" id="2_0c433"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://ddr7e3obrbau5" path="res://Assets/teacher_physics_with_hat_btn.gd" id="15_xp5il"]
 [ext_resource type="Script" uid="uid://b6c2a3c1a3jsf" path="res://Assets/schoolboy_0_btn.gd" id="17_que8t"]
 [ext_resource type="Texture2D" uid="uid://s0wjqaxxgdhl" path="res://Assets/soldering_station.png" id="19_que8t"]
+[ext_resource type="Texture2D" uid="uid://bi0iwwrwercdr" path="res://Assets/Important.png" id="21_xtj5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgn51"]
 size = Vector2(30, 14)
@@ -237,6 +238,16 @@ polygon = PackedVector2Array(-496, -304, -496, 112, -1104, 112, -1104, -304, -14
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(1, 0)
 polygon = PackedVector2Array(-1776, -32, -1888, -32, -1888, -496, -1904, -496, -1904, -432, -2096, -432, -2096, -624, -1904, -624, -1904, -560, -1888, -560, -1888, -704, -1776, -704, -1776, -560, -1760, -560, -1760, -672, -1552, -672, -1552, -432, -1760, -432, -1760, -496, -1776, -496, -1776, -416, -1088, -416, -1088, -608, -512, -608, -512, -416, -256, -416, -256, -432, -496, -432, -496, -624, -1105, -624, -1104, -432, -1536, -432, -1536, -688, -1760, -688, -1760, -720, -1904, -720, -1904, -641, -2112, -640, -2112, -416, -1904, -416, -1904, -16, -1776, -16)
+
+[node name="Important2" type="Sprite2D" parent="."]
+position = Vector2(-1625, -312)
+scale = Vector2(3, 3)
+texture = ExtResource("21_xtj5n")
+
+[node name="Important" type="Sprite2D" parent="."]
+position = Vector2(251, -92)
+scale = Vector2(3, 3)
+texture = ExtResource("21_xtj5n")
 
 [connection signal="body_entered" from="programming" to="." method="_on_programming_body_entered"]
 [connection signal="body_entered" from="solder" to="." method="_on_solder_body_entered"]
