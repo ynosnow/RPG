@@ -7,15 +7,12 @@ var solution : String = ""
 signal closed
 var test_finished = false
 
-
-
 func _ready():
 	player.can_move = false
 	%TestInput.visible = false
 		
 
 func _on_next_btn_pressed() -> void:
-
 	if Talk_Stage == 10:
 		solution = %TestInput.get_text()
 		if solution == "117N":

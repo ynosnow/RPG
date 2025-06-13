@@ -42,7 +42,10 @@ offset_left = 403.0
 offset_top = 212.0
 offset_right = 570.0
 offset_bottom = 243.0
+<<<<<<< HEAD
 max_value = 1e+06
+=======
+>>>>>>> a8e63f4c4dada4d13fd92272928fa07512fce834
 
 [node name="Panel" type="Panel" parent="."]
 unique_name_in_owner = true
