@@ -19,3 +19,4 @@ func _on_pressed() -> void:
 			Talk_Stage = 0
 			if Global.level_school == 0:
 				Global.level_school = 1
+				

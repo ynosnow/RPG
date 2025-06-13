@@ -87,8 +87,8 @@ theme_override_font_sizes/font_size = 40
 text = "X"
 script = ExtResource("2_rjxss")
 
-[connection signal="pressed" from="VBoxContainer/Save_Btn" to="VBoxContainer/Save_Btn" method="_on_save_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/Save_Btn" to="VBoxContainer/Save_Btn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Save_Btn" to="VBoxContainer/Save_Btn" method="_on_save_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/Load" to="VBoxContainer/Save_Btn" method="_on_load_pressed"]
 [connection signal="pressed" from="VBoxContainer/Load" to="VBoxContainer/Load" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit_Without_Save_Btn" to="VBoxContainer/Exit_Without_Save_Btn" method="_on_pressed"]

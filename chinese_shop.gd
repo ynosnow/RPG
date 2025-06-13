@@ -36,6 +36,10 @@ func _input(event):
 	if event.is_action_pressed("Interact"):
 		if $"Area2D2/Button".visible:
 			_on_button_pressed()
+		if $"SafeButton".visible:
+			_on_safe_button_pressed()
+		if $"SafeCodeButton".visible:
+			_on_safe_code_button_pressed()
 			
 	if event.is_action_pressed("Quest"):
 		SaveManager._save()
