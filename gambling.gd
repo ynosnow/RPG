@@ -51,7 +51,10 @@ func _on_green_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	await get_tree().change_scene_to_file("res://casino.tscn")
+<<<<<<< HEAD
 	
 func _process(delta: float) -> void:
 	if Global.cash == 0:
 		get_tree().change_scene_to_file("res://Credits.tscn")
+=======
+>>>>>>> a8e63f4c4dada4d13fd92272928fa07512fce834

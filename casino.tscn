@@ -54,8 +54,11 @@ position = Vector2(320, 180)
 polygon = PackedVector2Array(432, 368, 672, 368, 672, 0, 0, 0, 0, 368, 368, 368, 368, 364, 5, 364, 5, 4, 667, 4, 667, 364, 432, 364)
 
 [node name="Exit" type="Area2D" parent="."]
+<<<<<<< HEAD
 collision_layer = 3
 collision_mask = 3
+=======
+>>>>>>> a8e63f4c4dada4d13fd92272928fa07512fce834
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Exit"]
 position = Vector2(400, 367)
