@@ -53,3 +53,4 @@ func _on_pressed() -> void:
 			2: 
 				%Panel.visible = false
 				Talk_Stage = 0
+				
